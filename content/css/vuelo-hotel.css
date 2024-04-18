@@ -1,0 +1,208 @@
+* {
+    font-family: "Raleway", sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+}
+
+h2 {
+    font-size: 1.15rem;
+    color: white;
+}
+
+p {
+    font-size: 0.75rem;
+    color: white;
+}
+
+label {
+    font-size: 0.8rem;
+    font-weight: 800;
+    color: #2E0049;
+}
+
+input,
+.select2-container{
+    border-radius: 6px;
+    padding: 3%;
+    border: 1px solid #D3245C !important;
+}
+
+.select2-container{
+    padding: 1% 3% !important;
+}
+
+.select2-container--default .select2-selection--single{
+    border: none !important;
+}
+
+.select2-container .select2-selection--single .select2-selection__rendered{
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #636363;
+    padding: 0 !important;
+}
+
+::placeholder {
+    color: #636363;
+    font-family: "Raleway", sans-serif;
+    font-weight: 600;
+}
+
+select {
+    color: #636363;
+}
+
+.vueloMasHotel {
+    background: linear-gradient(180deg, #6C58FE 0%, #2E0049 100%);
+}
+
+.contenedorFormulario {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+    padding: 5vw 0;
+}
+
+.headerFormulario {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 8px;
+    border-radius: 9px;
+    background-color: #D3245C;
+    padding: 5% 10%;
+    margin-bottom: -3%;
+    z-index: 1;
+}
+
+form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    background-color: white;
+    border-radius: 0 0 18px 18px;
+    padding: 6% 3% 5% 3%;
+}
+
+form div {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+@media only screen and (min-width: 600px) {
+    h2 {
+        font-size: 2rem;
+    }
+
+    p {
+        font-size: 1.1rem;
+    }
+}
+
+@media only screen and (min-width: 800px) {
+    h2 {
+        font-size: 2.2rem;
+    }
+
+    p {
+        font-size: 1.2rem;
+    }
+}
+
+@media only screen and (min-width: 1000px) {
+    h2 {
+        font-size: 2.3rem;
+    }
+
+    p {
+        font-size: 1.3rem;
+    }
+}
+
+@media only screen and (min-width: 1080px) {
+    h2 {
+        width: 100% !important;
+        font-size: 2.5rem;
+    }
+
+    .subtituloWebinars {
+        font-size: 1.5rem;
+    }
+}
+
+@media only screen and (min-width: 1280px) {
+    h2 {
+        font-size: 2.75rem;
+    }
+
+    .subtituloWebinars {
+        font-size: 1.75rem;
+    }
+
+    p {
+        font-size: 1.4rem;
+    }
+}
+
+@media only screen and (min-width: 1440px) {
+    h2 {
+        font-size: 3rem;
+    }
+
+    .subtituloWebinars {
+        font-size: 2rem;
+    }
+
+    p {
+        font-size: 1.45rem;
+    }
+}
+
+@media only screen and (min-width: 1600px) {
+    h2 {
+        font-size: 3.25rem;
+    }
+
+    .subtituloWebinars {
+        font-size: 2.1rem;
+    }
+
+    p {
+        font-size: 1.5rem;
+    }
+}
+
+@media only screen and (min-width: 1750px) {
+    h2 {
+        font-size: 3.35rem;
+    }
+
+    .subtituloWebinars {
+        font-size: 2.2rem;
+    }
+
+    p {
+        font-size: 1.5rem;
+    }
+}
+
+@media only screen and (min-width: 1920px) {
+    h2 {
+        font-size: 3.45rem;
+    }
+
+    .subtituloWebinars {
+        font-size: 2.3rem;
+    }
+
+    p {
+        font-size: 1.55rem;
+    }
+}
