@@ -22,8 +22,7 @@
   <!-- <link rel="stylesheet" type="text/css" href="content/css/styles-basicos.css" /> -->
   <link rel="stylesheet" href="/content/css/vuelo-hotel.css">
   <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
-
-
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
   <!-- <script defer type="text/javascript" src="content/js/libs/libs-reducidas.js"></script> -->
   <!-- <script defer src="https://webchat.woztell.com/sdk.js"></script> -->
 </head>
@@ -41,13 +40,11 @@
         <form>
           <div>
             <label for="nombre">Nombre</label>
-            <input class="inputNombre" id="nombre" name="nombre" type="text" placeholder="Ingresá tu nombre">
+            <input class="inputNombre" id="nombre" name="nombre" type="text" placeholder="Ingresa tu nombre">
           </div>
-          <div>
+          <div class="contenedorSelectPaisResidencia">
             <label for="paisResidencia">País de residencia </label>
-            <select width="100%" class="selectPaisResidencia" name="paisResidencia" id="paisResidencia">
-              <option value="">Seleccioná tu país</option>
-            </select>
+            <select width="100%" class="selectPaisResidencia" name="paisResidencia" id="paisResidencia"></select>
           </div>
           <div>
             <label for="numeroWhatsapp">Número de Whatsapp (opcional)</label>
@@ -59,20 +56,61 @@
           </div>
           <div>
             <label for="mail">Mail</label>
-            <input class="inputMail" id="mail" type="email" placeholder="Ingresá tu mail">
+            <input class="inputMail" id="mail" type="email" placeholder="Ingresa tu mail">
           </div>
           <div>
-            <label for="fechas">Selector de fechas</label>
-            <input id="fechas" type="text">
+            <label for="fechaSalida">Selector de fechas</label>
+            <div class="contenedorInputsFechas">
+              <input class="inputFecha inputFechaSalida" name="fechaSalida" id="fechaSalida" type="text"
+                placeholder="Ingresa fecha de salida" value="">
+              <input class="inputFecha inputFechaVuelta" name="fechaVuelta" id="fechaVuelta" type="text"
+                placeholder="Ingresa fecha de vuelta" value="">
+            </div>
           </div>
           <div>
             <label for="ruta">Selector de ruta</label>
-            <input id="ruta" type="text">
+            <div class="contenedorInputsRutas">
+              <div class="contenedorInputOrigen">
+                <select width="100%" class="selectOrigen" name="origen" id="origen"></select>
+              </div>
+              <div class="contenedorInputDestino">
+                <select width="100%" class="selectDestino" name="destino" id="destino"></select>
+              </div>
+            </div>
           </div>
           <div>
-            <label for="categoriaHotel">Categoría del hotel</label>
-            <input id="categoriaHotel" type="text">
+            <p class="pCategoriaHotel">Categoría del hotel</p>
+            <div class="contenedorEstrellas">
+              <div class="opcionEstrellas">
+                <input type="radio" id="3-estrellas" name="estrellasHotel" value="3">
+                <label for="3-estrellas">
+                  <div class="imgEstrellas">
+                    <img src="../content/img/3estrellas.png" alt="Hotel 3 Estrellas">
+                  </div>
+                  3 estrellas
+                </label>
+              </div>
+              <div class="opcionEstrellas">
+                <input type="radio" id="4-estrellas" name="estrellasHotel" value="4">
+                <label for="4-estrellas">
+                  <div class="imgEstrellas">
+                    <img src="../content/img/4estrellas.png" alt="Hotel 4 Estrellas">
+                  </div>
+                  4 estrellas
+                </label>
+              </div>
+              <div class="opcionEstrellas">
+                <input type="radio" id="5-estrellas" name="estrellasHotel" value="5">
+                <label for="5-estrellas">
+                  <div class="imgEstrellas">
+                    <img src="../content/img//5estrellas.png" alt="Hotel 5 Estrellas">
+                  </div>
+                  5 estrellas
+                </label>
+              </div>
+            </div>
           </div>
+          <button>Enviar</button>
         </form>
       </div>
     </section>
@@ -85,6 +123,8 @@
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script defer type="text/javascript" src="/content/js/vuelo-hotel.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
   <!-- <script>
     var watcherPagina = setInterval(function () {
       if (window.jQuery) {
