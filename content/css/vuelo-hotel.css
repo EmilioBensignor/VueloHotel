@@ -16,46 +16,8 @@ p {
     color: white;
 }
 
-label {
-    font-size: 0.8rem;
-    font-weight: 800;
-    color: #2E0049;
-}
-
-input,
-.select2-container{
-    border-radius: 6px;
-    padding: 3%;
-    border: 1px solid #D3245C !important;
-}
-
-.select2-container{
-    padding: 1% 3% !important;
-}
-
-.select2-container--default .select2-selection--single{
-    border: none !important;
-}
-
-.select2-container .select2-selection--single .select2-selection__rendered{
-    font-size: 0.8rem;
-    font-weight: 600;
-    color: #636363;
-    padding: 0 !important;
-}
-
-::placeholder {
-    color: #636363;
-    font-family: "Raleway", sans-serif;
-    font-weight: 600;
-}
-
-select {
-    color: #636363;
-}
-
 .vueloMasHotel {
-    background: linear-gradient(180deg, #6C58FE 0%, #2E0049 100%);
+    background: linear-gradient(180deg, #6c58fe 0%, #2e0049 100%);
 }
 
 .contenedorFormulario {
@@ -74,7 +36,7 @@ select {
     text-align: center;
     gap: 8px;
     border-radius: 9px;
-    background-color: #D3245C;
+    background-color: #d3245c;
     padding: 5% 10%;
     margin-bottom: -3%;
     z-index: 1;
@@ -94,6 +56,82 @@ form div {
     display: flex;
     flex-direction: column;
     gap: 8px;
+}
+
+label {
+    font-size: 0.8rem;
+    font-weight: 800;
+    color: #2e0049;
+}
+
+input,
+.select2-container {
+    width: 100% !important;
+    border-radius: 6px;
+    padding: 3%;
+    border: 1px solid #d3245c !important;
+}
+
+.select2-container {
+    padding: 1% 3% !important;
+}
+
+.select2-container--default .select2-selection--single {
+    border: none !important;
+}
+
+.select2-container .select2-selection--single .select2-selection__rendered {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #636363;
+    padding: 0 !important;
+}
+
+::placeholder {
+    color: #636363;
+    font-family: "Raleway", sans-serif;
+    font-weight: 600;
+}
+
+select {
+    color: #636363;
+}
+
+.inputNombre,
+.select2-container, .inputArea, .inputMail {
+    padding-left: 30px !important;
+    background-size: 12px 12px;
+    background-position: 10px center;
+    background-repeat: no-repeat;
+}
+
+.inputNombre {
+    background-image: url("../img/icono-nombre.png");
+}
+
+.select2-container {
+    background-image: url("../img/icono-residencia.png");
+}
+
+.inputArea{
+    background-image: url("../img/icono-whatsapp.png");
+}
+
+.inputMail{
+    background-image: url("../img/icono-mail.png");
+}
+
+.areaNumeroWhatsapp {
+    display: flex;
+    flex-direction: row;
+}
+
+.inputArea {
+    width: 30% !important;
+}
+
+.inputNumeroWhatsapp {
+    width: 70% !important;
 }
 
 @media only screen and (min-width: 600px) {
