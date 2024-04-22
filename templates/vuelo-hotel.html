@@ -37,10 +37,11 @@
           <p>Dejanos los detalles de tu viaje para
             que podamos enviarte una propuesta.</p>
         </div>
-        <form>
+        <form id="vueloHotel">
           <div>
             <label for="nombre">Nombre</label>
             <input class="inputNombre" id="nombre" name="nombre" type="text" placeholder="Ingresa tu nombre">
+            <div id="errorNombre" class="error"></div>
           </div>
           <div class="contenedorSelectPaisResidencia">
             <label for="paisResidencia">País de residencia </label>
@@ -81,36 +82,36 @@
           <div>
             <p class="pCategoriaHotel">Categoría del hotel</p>
             <div class="contenedorEstrellas">
-              <div class="opcionEstrellas">
+              <div id="opcion3Estrellas" class="opcionEstrellas">
                 <input type="radio" id="3-estrellas" name="estrellasHotel" value="3">
                 <label for="3-estrellas">
                   <div class="imgEstrellas">
-                    <img src="../content/img/3estrellas.png" alt="Hotel 3 Estrellas">
+                    <img id="img3Estrellas" src="../content/img/3estrellas.png" alt="Hotel 3 Estrellas">
                   </div>
                   3 estrellas
                 </label>
               </div>
-              <div class="opcionEstrellas">
+              <div id="opcion4Estrellas" class="opcionEstrellas">
                 <input type="radio" id="4-estrellas" name="estrellasHotel" value="4">
                 <label for="4-estrellas">
                   <div class="imgEstrellas">
-                    <img src="../content/img/4estrellas.png" alt="Hotel 4 Estrellas">
+                    <img id="img4Estrellas" src="../content/img/4estrellas.png" alt="Hotel 4 Estrellas">
                   </div>
                   4 estrellas
                 </label>
               </div>
-              <div class="opcionEstrellas">
+              <div id="opcion5Estrellas" class="opcionEstrellas">
                 <input type="radio" id="5-estrellas" name="estrellasHotel" value="5">
                 <label for="5-estrellas">
                   <div class="imgEstrellas">
-                    <img src="../content/img//5estrellas.png" alt="Hotel 5 Estrellas">
+                    <img id="img5Estrellas" src="../content/img//5estrellas.png" alt="Hotel 5 Estrellas">
                   </div>
                   5 estrellas
                 </label>
               </div>
             </div>
           </div>
-          <button>Enviar</button>
+          <button type="submit" id="btnSubmit">Enviar</button>
         </form>
       </div>
     </section>
