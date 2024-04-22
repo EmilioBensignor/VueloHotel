@@ -55,7 +55,7 @@ form {
 form div {
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 0.5rem;
 }
 
 label,
@@ -66,7 +66,7 @@ label,
 }
 
 input,
-.select2-container {
+.select2 {
     width: 100% !important;
     border-radius: 6px;
     padding: 3%;
@@ -101,6 +101,7 @@ input:focus,
 ::placeholder {
     color: #636363;
     font-family: "Raleway", sans-serif;
+    font-size: 0.8rem;
     font-weight: 600;
 }
 
@@ -151,6 +152,21 @@ select {
     background-image: url("../img/icono-destino.png");
 }
 
+.select2-dropdown{
+    border: 1px solid #d3245c !important;
+    border-radius: 9px !important;
+}
+
+.select2-results{
+    padding: 8px 6px;
+}
+
+.select2-container--default .select2-results__option--highlighted.select2-results__option--selectable{
+    background-color: #E9E9E9 !important;
+    color: #636363 !important;
+    border-radius: 9px;
+}
+
 .areaNumeroWhatsapp {
     display: flex;
     flex-direction: row;
@@ -171,7 +187,7 @@ select {
 
 .inputFechaSalida,
 .contenedorInputOrigen .select2-container {
-    border-bottom: 1px solid #E9E9E9 !important;
+    border-bottom: 1px solid #e9e9e9 !important;
     border-radius: 6px 6px 0 0;
 }
 
@@ -183,7 +199,7 @@ select {
 
 .daterangepicker td.active,
 .daterangepicker td.active:hover {
-    background: #2E0049 !important;
+    background: #2e0049 !important;
 }
 
 .daterangepicker .drp-buttons .btn {
@@ -194,16 +210,23 @@ select {
 }
 
 .cancelBtn {
-    background: #2E0049;
+    background: #2e0049;
 }
 
 .applyBtn {
     background: #d3245c;
 }
 
-.contenedorEstrellas{
+.contenedorEstrellas {
     display: flex;
+    justify-content: center;
     flex-direction: row;
+    gap: 0.75rem;
+    margin-top: 0.75rem;
+}
+
+.opcionEstrellas {
+    width: 5rem;
 }
 
 .opcionEstrellas input[type="radio"] {
@@ -214,17 +237,18 @@ select {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 8px;
-    text-align: center;
+    gap: 0.5rem;
     border-radius: 9px;
     box-shadow: 0px 0px 3px 0px #00000040;
-    color: #D3245C;
+    color: #d3245c;
+    font-size: 0.7rem;
+    text-align: center;
     cursor: pointer;
-    padding: 10px;
+    padding: 0.5rem;
 }
 
-.opcionEstrellas input[type="radio"]:checked + label{
-    background-color: #D3245C;
+.opcionEstrellas input[type="radio"]:checked+label {
+    background-color: #d3245c;
     color: white;
 }
 
@@ -236,12 +260,72 @@ select {
 }
 
 button {
-    background: #D3245C;
+    background: #d3245c;
     border: none;
     color: white;
     border-radius: 33px;
     padding: 4% 10%;
     font-size: 1rem;
+}
+
+@media only screen and (min-width: 350px) {
+    .opcionEstrellas {
+        width: 5.5rem;
+    }
+}
+
+@media only screen and (min-width: 400px) {
+    .opcionEstrellas {
+        width: 6rem;
+    }
+}
+
+@media only screen and (min-width: 440px) {
+    .opcionEstrellas {
+        width: 6.75rem;
+    }
+}
+
+@media only screen and (min-width: 480px) {
+    p {
+        font-size: 0.85rem;
+    }
+
+    label,
+    .pCategoriaHotel {
+        font-size: 0.9rem;
+    }
+
+    .opcionEstrellas label {
+        font-size: 0.85rem;
+    }
+
+    ::placeholder {
+        font-size: 0.85rem;
+    }
+
+    .select2-container .select2-selection--single .select2-selection__rendered {
+        font-size: 0.85rem;
+    }
+
+    .inputNombre,
+    .select2-container,
+    .inputArea,
+    .inputMail,
+    .inputFecha {
+        padding-left: 35px !important;
+        background-size: 0.9rem 0.9rem;
+    }
+
+    .opcionEstrellas {
+        width: 7.5rem;
+    }
+}
+
+@media only screen and (min-width: 550px) {
+    .opcionEstrellas {
+        width: 8.75rem;
+    }
 }
 
 @media only screen and (min-width: 600px) {
@@ -251,6 +335,50 @@ button {
 
     p {
         font-size: 1.1rem;
+    }
+
+    label,
+    .pCategoriaHotel {
+        font-size: 1.15rem;
+    }
+
+    .opcionEstrellas label {
+        font-size: 1rem;
+    }
+
+    ::placeholder {
+        font-size: 0.9rem;
+    }
+
+    .select2-container .select2-selection--single .select2-selection__rendered {
+        font-size: 0.9rem;
+    }
+
+    .inputNombre,
+    .select2-container,
+    .inputArea,
+    .inputMail,
+    .inputFecha {
+        padding-left: 35px !important;
+        background-size: 1rem 1rem;
+    }
+}
+
+@media only screen and (min-width: 630px) {
+    .opcionEstrellas {
+        width: 9.75rem;
+    }
+}
+
+@media only screen and (min-width: 700px) {
+    .opcionEstrellas {
+        width: 11rem;
+    }
+}
+
+@media only screen and (min-width: 770px) {
+    .opcionEstrellas {
+        width: 12.25rem;
     }
 }
 
@@ -264,6 +392,24 @@ button {
     }
 }
 
+@media only screen and (min-width: 850px) {
+    .opcionEstrellas {
+        width: 13.5rem;
+    }
+}
+
+@media only screen and (min-width: 925px) {
+    .opcionEstrellas {
+        width: 14.75rem;
+    }
+}
+
+@media only screen and (min-width: 960px) {
+    .opcionEstrellas {
+        width: 15.5rem;
+    }
+}
+
 @media only screen and (min-width: 1000px) {
     h2 {
         font-size: 2.3rem;
@@ -271,6 +417,16 @@ button {
 
     p {
         font-size: 1.3rem;
+    }
+
+    .opcionEstrellas {
+        width: 16.25rem;
+    }
+}
+
+@media only screen and (min-width: 1050px) {
+    .opcionEstrellas {
+        width: 17rem;
     }
 }
 
@@ -282,6 +438,22 @@ button {
 
     .subtituloWebinars {
         font-size: 1.5rem;
+    }
+
+    .opcionEstrellas {
+        width: 17.75rem;
+    }
+}
+
+@media only screen and (min-width: 1150px) {
+    .opcionEstrellas {
+        width: 18.75rem;
+    }
+}
+
+@media only screen and (min-width: 1050px) {
+    .opcionEstrellas {
+        width: 19.75rem;
     }
 }
 
@@ -297,6 +469,22 @@ button {
     p {
         font-size: 1.4rem;
     }
+
+    .opcionEstrellas {
+        width: 21.25rem;
+    }
+}
+
+@media only screen and (min-width: 1350px) {
+    .opcionEstrellas {
+        width: 22.5rem;
+    }
+}
+
+@media only screen and (min-width: 1400px) {
+    .opcionEstrellas {
+        width: 23.5rem;
+    }
 }
 
 @media only screen and (min-width: 1440px) {
@@ -310,6 +498,16 @@ button {
 
     p {
         font-size: 1.45rem;
+    }
+
+    .opcionEstrellas {
+        width: 24rem;
+    }
+}
+
+@media only screen and (min-width: 1500px) {
+    .opcionEstrellas {
+        width: 25rem;
     }
 }
 
