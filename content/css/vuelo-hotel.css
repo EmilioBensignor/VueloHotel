@@ -20,6 +20,10 @@ p {
     background: linear-gradient(180deg, #6c58fe 0%, #2e0049 100%);
 }
 
+.imagenVueloHotel{
+    display: none;
+}
+
 .contenedorFormulario {
     width: 90%;
     display: flex;
@@ -152,16 +156,16 @@ select {
     background-image: url("../img/icono-destino.png");
 }
 
-.select2-dropdown{
+.select2-dropdown {
     border: 1px solid #d3245c !important;
     border-radius: 9px !important;
 }
 
-.select2-results{
+.select2-results {
     padding: 8px 6px;
 }
 
-.select2-container--default .select2-results__option--highlighted.select2-results__option--selectable{
+.select2-container--default .select2-results__option--highlighted.select2-results__option--selectable {
     background-color: #E9E9E9 !important;
     color: #636363 !important;
     border-radius: 9px;
@@ -259,16 +263,18 @@ select {
     margin-bottom: 5px;
 }
 
-button {
+.btnSubmit {
     background: #d3245c;
     border: none;
     color: white;
     border-radius: 33px;
-    padding: 4% 10%;
     font-size: 1rem;
+    font-weight: 600;
+    padding: 4% 10%;
+    margin: 0 3%;
 }
 
-.mensajeError{
+.mensajeError {
     color: #F03A36;
     font-size: 0.8rem;
 }
@@ -325,6 +331,11 @@ button {
     .opcionEstrellas {
         width: 7.5rem;
     }
+
+    .btnSubmit {
+        font-size: 1.2rem;
+        margin-top: 0.5rem;
+    }
 }
 
 @media only screen and (min-width: 550px) {
@@ -334,6 +345,10 @@ button {
 }
 
 @media only screen and (min-width: 600px) {
+    .headerFormulario{
+        padding: 4% 10%;
+    }
+
     h2 {
         font-size: 2rem;
     }
@@ -364,8 +379,18 @@ button {
     .inputArea,
     .inputMail,
     .inputFecha {
+        padding: 2.5% 3%;
         padding-left: 35px !important;
         background-size: 1rem 1rem;
+    }
+
+    .inputNumeroWhatsapp{
+        padding: 2.5% 3%;
+    }
+
+    .btnSubmit {
+        font-size: 1.5rem;
+        padding: 3% 9%;
     }
 }
 
@@ -382,6 +407,55 @@ button {
 }
 
 @media only screen and (min-width: 770px) {
+    .headerFormulario{
+        width: 100%;
+        padding: 3% 10%;
+    }
+    
+    h2 {
+        font-size: 2.2rem;
+    }
+
+    p {
+        font-size: 1.15rem;
+    }
+
+    label,
+    .pCategoriaHotel {
+        font-size: 1.2rem;
+    }
+
+    .opcionEstrellas label {
+        font-size: 1.1rem;
+    }
+
+    ::placeholder {
+        font-size: 1rem;
+    }
+
+    .select2-container .select2-selection--single .select2-selection__rendered {
+        font-size: 1rem;
+    }
+
+    .inputNombre,
+    .select2-container,
+    .inputArea,
+    .inputMail,
+    .inputFecha {
+        padding-left: 40px !important;
+        background-size: 1.2rem 1.2rem;
+        padding: 2% 3%;
+    }
+
+    .inputNumeroWhatsapp{
+        padding: 2% 3%;
+    }
+
+    .btnSubmit {
+        font-size: 1.7rem;
+        padding: 2.5% 7%;
+    }
+
     .opcionEstrellas {
         width: 12.25rem;
     }
@@ -436,6 +510,18 @@ button {
 }
 
 @media only screen and (min-width: 1080px) {
+    .imagenVueloHotel{
+        display: block;
+        background-image: url("../img/");
+        background-position: center;
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
+
+    .contenedorFormulario{
+        width: 40%;
+    }
+    
     h2 {
         width: 100% !important;
         font-size: 2.5rem;
@@ -459,6 +545,12 @@ button {
 @media only screen and (min-width: 1050px) {
     .opcionEstrellas {
         width: 19.75rem;
+    }
+}
+
+@media only screen and (min-width: 1080px) {
+    .opcionEstrellas label{
+        padding: 1rem 0.5rem;
     }
 }
 
