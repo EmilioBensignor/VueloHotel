@@ -31,7 +31,9 @@
   <!--header-->
   <main>
     <section class="vueloMasHotel">
-      <div class="imagenVueloHotel"></div>
+      <div class="imagenVueloHotel">
+        <img src="../content/img/Mujer-pasajero.webp">
+      </div>
       <div class="contenedorFormulario">
         <div class="headerFormulario">
           <h2>Vuelo + Hotel</h2>
@@ -39,45 +41,58 @@
             que podamos enviarte una propuesta.</p>
         </div>
         <form id="vueloHotel">
-          <div>
-            <label for="nombre">Nombre</label>
-            <input class="inputNombre" id="nombre" name="nombre" type="text" placeholder="Ingresa tu nombre">
-            <div id="errorNombre" class="error"></div>
-          </div>
-          <div class="contenedorSelectPaisResidencia">
-            <label for="paisResidencia">País de residencia </label>
-            <select width="100%" class="selectPaisResidencia" name="paisResidencia" id="paisResidencia"></select>
-          </div>
-          <div>
-            <label for="numeroWhatsapp">Número de Whatsapp (opcional)</label>
-            <div class="areaNumeroWhatsapp">
-              <input class="inputArea" id="area" type="text" placeholder="Área">
-              <input class="inputNumeroWhatsapp" id="numeroWhatsapp" type="tel" placeholder="Número"
-                autocomplete="none">
+          <div class="nombrePaisResidencia">
+            <div class="contenedorNombre">
+              <label for="nombre">Nombre</label>
+              <input class="inputNombre" id="nombre" name="nombre" type="text" placeholder="Ingresa tu nombre">
+              <div id="errorNombre" class="error"></div>
+            </div>
+            <div class="contenedorPaisResidencia">
+              <label for="paisResidencia">País de residencia </label>
+              <div class="contenedorSelectPaisResidencia">
+                <select width="100%" class="selectPaisResidencia" name="paisResidencia" id="paisResidencia"></select>
+              </div>
+              <div id="errorPaisResidencia" class="error"></div>
             </div>
           </div>
-          <div>
-            <label for="mail">Mail</label>
-            <input class="inputMail" id="mail" type="email" placeholder="Ingresa tu mail">
-          </div>
-          <div>
-            <label for="fechaSalida">Selector de fechas</label>
-            <div class="contenedorInputsFechas">
-              <input class="inputFecha inputFechaSalida" name="fechaSalida" id="fechaSalida" type="text"
-                placeholder="Ingresa fecha de salida" value="">
-              <input class="inputFecha inputFechaVuelta" name="fechaVuelta" id="fechaVuelta" type="text"
-                placeholder="Ingresa fecha de vuelta" value="">
+          <div class="whatsappMail">
+            <div class="contenedorWhatsapp">
+              <label for="numeroWhatsapp">Número de Whatsapp</label>
+              <div class="areaNumeroWhatsapp">
+                <input class="inputArea" id="area" type="text" placeholder="Área">
+                <input class="inputNumeroWhatsapp" id="numeroWhatsapp" type="tel" placeholder="Número"
+                  autocomplete="none">
+              </div>
+              <div id="errorWhatsapp" class="error"></div>
+            </div>
+            <div class="contenedorMail">
+              <label for="mail">Mail</label>
+              <input class="inputMail" id="mail" type="email" placeholder="Ingresa tu mail">
+              <div id="errorMail" class="error"></div>
             </div>
           </div>
-          <div>
-            <label for="ruta">Selector de ruta</label>
-            <div class="contenedorInputsRutas">
-              <div class="contenedorInputOrigen">
-                <select width="100%" class="selectOrigen" name="origen" id="origen"></select>
+          <div class="fechaSalidaRutas">
+            <div class="contenedorFechaSalida">
+              <label for="fechaSalida">Selector de fechas</label>
+              <div class="contenedorInputsFechas">
+                <input class="inputFecha inputFechaSalida" name="fechaSalida" id="fechaSalida" type="text"
+                  placeholder="Ingresa fecha de salida" value="">
+                <input class="inputFecha inputFechaVuelta" name="fechaVuelta" id="fechaVuelta" type="text"
+                  placeholder="Ingresa fecha de vuelta" value="">
               </div>
-              <div class="contenedorInputDestino">
-                <select width="100%" class="selectDestino" name="destino" id="destino"></select>
+              <div id="errorFechas" class="error"></div>
+            </div>
+            <div class="contenedorRutas">
+              <label for="ruta">Selector de ruta</label>
+              <div class="contenedorInputsRutas">
+                <div class="contenedorInputOrigen">
+                  <select width="100%" class="selectOrigen" name="origen" id="origen"></select>
+                </div>
+                <div class="contenedorInputDestino">
+                  <select width="100%" class="selectDestino" name="destino" id="destino"></select>
+                </div>
               </div>
+              <div id="errorRutas" class="error"></div>
             </div>
           </div>
           <div>
