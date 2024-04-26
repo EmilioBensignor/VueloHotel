@@ -148,31 +148,31 @@ select {
 }
 
 .inputNombre {
-    background-image: url("../img/icono-nombre.png");
+    background-image: url("/content/img/icono-nombre.png");
 }
 
 .contenedorSelectPaisResidencia .select2-container {
-    background-image: url("../img/icono-residencia.png");
+    background-image: url("/content/img/icono-residencia.png");
 }
 
 .inputArea {
-    background-image: url("../img/icono-whatsapp.png");
+    background-image: url("/content/img/icono-whatsapp.png");
 }
 
 .inputMail {
-    background-image: url("../img/icono-mail.png");
+    background-image: url("/content/img/icono-mail.png");
 }
 
 .inputFecha {
-    background-image: url("../img/icono-fechas.png");
+    background-image: url("/content/img/icono-fechas.png");
 }
 
 .contenedorInputOrigen .select2-container {
-    background-image: url("../img/icono-origen.png");
+    background-image: url("/content/img/icono-origen.png");
 }
 
 .contenedorInputDestino .select2-container {
-    background-image: url("../img/icono-destino.png");
+    background-image: url("/content/img/icono-destino.png");
 }
 
 .select2-dropdown {
@@ -297,9 +297,23 @@ select {
     margin: 0 3%;
 }
 
-.mensajeError {
+.error {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    gap: 0.3rem;
     color: #f03a36;
     font-size: 0.8rem;
+    margin-top: -0.5rem;
+}
+
+.errorIcon {
+    width: 15px;
+    height: 15px;
+    background-image: url("/content/img/error-icon.png");
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
 }
 
 @media only screen and (min-width: 350px) {
@@ -592,15 +606,16 @@ select {
 }
 
 @media only screen and (min-width: 1080px) {
-    main{
+    main {
         width: 90%;
         margin: 5vw auto;
     }
-    
+
     .vueloMasHotel {
         display: flex;
         justify-content: space-around;
         border-radius: 18px;
+        padding: 0 1rem;
     }
 
     .imagenVueloHotel {
@@ -637,7 +652,8 @@ select {
         font-size: 0.875rem;
     }
 
-    ::placeholder, .contenedorSelectPaisResidencia .select2-container .selection .select2-selection .select2-selection__rendered,
+    ::placeholder,
+    .contenedorSelectPaisResidencia .select2-container .selection .select2-selection .select2-selection__rendered,
     .contenedorInputOrigen .select2-container .selection .select2-selection .select2-selection__rendered,
     .contenedorInputDestino .select2-container .selection .select2-selection .select2-selection__rendered {
         font-size: 0.9rem;
@@ -670,11 +686,11 @@ select {
         padding: 6.5% 0 6.5% 17% !important;
     }
 
-    .inputNumeroWhatsapp{
+    .inputNumeroWhatsapp {
         padding-left: 5%;
     }
 
-    .contenedorSelectPaisResidencia .select2-container{
+    .contenedorSelectPaisResidencia .select2-container {
         width: 100% !important;
     }
 
@@ -684,7 +700,7 @@ select {
         padding: 4% 13% !important;
     }
 
-    .areaNumeroWhatsapp{
+    .areaNumeroWhatsapp {
         gap: 0.5rem;
     }
 
@@ -748,7 +764,7 @@ select {
         width: 21.25rem;
     }
 
-    .btnSubmit{
+    .btnSubmit {
         font-size: 1.4rem;
     }
 }
@@ -783,7 +799,8 @@ select {
         font-size: 1.05rem;
     }
 
-    ::placeholder, .contenedorSelectPaisResidencia .select2-container .selection .select2-selection .select2-selection__rendered,
+    ::placeholder,
+    .contenedorSelectPaisResidencia .select2-container .selection .select2-selection .select2-selection__rendered,
     .contenedorInputOrigen .select2-container .selection .select2-selection .select2-selection__rendered,
     .contenedorInputDestino .select2-container .selection .select2-selection .select2-selection__rendered {
         font-size: 1rem;
@@ -806,12 +823,16 @@ select {
         width: 24rem;
     }
 
-    .btnSubmit{
+    .btnSubmit {
         font-size: 1.5rem;
     }
 }
 
 @media only screen and (min-width: 1500px) {
+    .imagenVueloHotel img {
+        width: 90%;
+    }
+
     .opcionEstrellas {
         width: 25rem;
     }
@@ -835,7 +856,8 @@ select {
         font-size: 1.15rem;
     }
 
-    ::placeholder, .contenedorSelectPaisResidencia .select2-container .selection .select2-selection .select2-selection__rendered,
+    ::placeholder,
+    .contenedorSelectPaisResidencia .select2-container .selection .select2-selection .select2-selection__rendered,
     .contenedorInputOrigen .select2-container .selection .select2-selection .select2-selection__rendered,
     .contenedorInputDestino .select2-container .selection .select2-selection .select2-selection__rendered {
         font-size: 1.05rem;
@@ -854,7 +876,7 @@ select {
         padding: 3.5% 10% !important;
     }
 
-    .btnSubmit{
+    .btnSubmit {
         font-size: 1.6rem;
     }
 }
@@ -877,7 +899,8 @@ select {
         font-size: 1.25rem;
     }
 
-    ::placeholder, .contenedorSelectPaisResidencia .select2-container .selection .select2-selection .select2-selection__rendered,
+    ::placeholder,
+    .contenedorSelectPaisResidencia .select2-container .selection .select2-selection .select2-selection__rendered,
     .contenedorInputOrigen .select2-container .selection .select2-selection .select2-selection__rendered,
     .contenedorInputDestino .select2-container .selection .select2-selection .select2-selection__rendered {
         font-size: 1.1rem;
@@ -896,7 +919,7 @@ select {
         padding: 3.85% 9% !important;
     }
 
-    .btnSubmit{
+    .btnSubmit {
         font-size: 1.7rem;
     }
 }
@@ -904,6 +927,10 @@ select {
 @media only screen and (min-width: 1920px) {
     h2 {
         font-size: 3.2rem;
+    }
+
+    .imagenVueloHotel img {
+        width: 85%;
     }
 
     main p {
@@ -919,7 +946,8 @@ select {
         font-size: 1.3rem;
     }
 
-    ::placeholder, .contenedorSelectPaisResidencia .select2-container .selection .select2-selection .select2-selection__rendered,
+    ::placeholder,
+    .contenedorSelectPaisResidencia .select2-container .selection .select2-selection .select2-selection__rendered,
     .contenedorInputOrigen .select2-container .selection .select2-selection .select2-selection__rendered,
     .contenedorInputDestino .select2-container .selection .select2-selection .select2-selection__rendered {
         font-size: 1.2rem;
@@ -938,7 +966,7 @@ select {
         padding: 3.4% 8% !important;
     }
 
-    .btnSubmit{
+    .btnSubmit {
         font-size: 1.8rem;
     }
 }

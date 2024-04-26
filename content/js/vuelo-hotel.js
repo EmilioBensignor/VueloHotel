@@ -96,10 +96,20 @@ function handleSubmit(event) {
 }
 
 function validateForm() {
+  const errorIcon = document.createElement('div');
+  errorIcon.className = 'errorIcon';
+  const errorText = document.createElement('p');
+
   const nombre = document.getElementById('nombre').value;
   const errorNombre = document.getElementById('errorNombre');
+  // Agregar los otros campos
+
+  // Agregar logica/s de los errores para cada campo
   if (nombre.trim() === '') {
-    errorNombre.textContent = 'El nombre es requerido';
+    errorText.textContent = 'El nombre es requerido';
+    errorText.className = 'error'
+    errorNombre.appendChild(errorIcon);
+    errorNombre.appendChild(errorText);
     return false;
   } else {
     errorNombre.textContent = '';
