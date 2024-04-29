@@ -304,16 +304,12 @@ select {
     gap: 0.3rem;
     color: #f03a36;
     font-size: 0.8rem;
-    margin-top: -0.5rem;
+    margin-top: -0.25rem;
 }
 
 .errorIcon {
     width: 15px;
     height: 15px;
-    background-image: url("/content/img/error-icon.png");
-    background-position: center;
-    background-size: contain;
-    background-repeat: no-repeat;
 }
 
 @media only screen and (min-width: 350px) {
@@ -454,6 +450,10 @@ select {
         font-size: 1.5rem;
         padding: 3% 9%;
     }
+
+    .error {
+        font-size: 0.9rem;
+    }
 }
 
 @media only screen and (min-width: 630px) {
@@ -538,6 +538,10 @@ select {
 
     .opcionEstrellas {
         width: 12.25rem;
+    }
+
+    .error {
+        font-size: 0.95rem;
     }
 }
 
@@ -683,7 +687,7 @@ select {
     .inputArea,
     .inputMail,
     .inputFecha {
-        padding: 6.5% 0 6.5% 17% !important;
+        padding: 7% 0 7% 17% !important;
     }
 
     .inputNumeroWhatsapp {
@@ -697,7 +701,7 @@ select {
     .contenedorSelectPaisResidencia .select2-container,
     .contenedorInputOrigen .select2-container,
     .contenedorInputDestino .select2-container {
-        padding: 4% 13% !important;
+        padding: 4% 14% !important;
     }
 
     .areaNumeroWhatsapp {
@@ -714,6 +718,10 @@ select {
 
     .btnSubmit {
         font-size: 1.3rem;
+    }
+
+    .error{
+        align-items: baseline;
     }
 }
 
