@@ -132,9 +132,12 @@ function validarMail(mail, errorMail) {
   }
 }
 
-function validarNumeroWhatsapp(numeroWhatsapp, area, errorWhatsapp){
+function validarNumeroWhatsapp(numeroWhatsapp, area, errorWhatsapp) {
   if (numeroWhatsapp.trim() === '' || area.trim() === '') {
     mostrarError(errorWhatsapp, 'El número y área son requeridos');
+    return false;
+  } else if (parseInt(numeroWhatsapp) <= 0) {
+    mostrarError(errorWhatsapp, 'El número de WhatsApp no es válido');
     return false;
   } else {
     errorWhatsapp.innerHTML = '';
@@ -142,16 +145,48 @@ function validarNumeroWhatsapp(numeroWhatsapp, area, errorWhatsapp){
   }
 }
 
-function validarFechas(fechaSalida, fechaVuelta, errorFechas){
+function validarFechas(fechaSalida, fechaVuelta, errorFechas) {
   if (fechaSalida.trim() === '' || fechaVuelta.trim() === '') {
-    mostrarError(errorFechas, 'La fechas son requeridas');
+    mostrarError(errorFechas, 'Las fechas son requeridas');
     return false;
-  } else if (fechaSalida.trim() ===  fechaVuelta.trim()) {
-    mostrarError(errorFechas, 'La fechas no pueden ser iguales');
-    return false;
-    // AGREGAR QUE VUELTA TIENE QUE SER POSTERIOR A SALIDA
   } else {
-    errorFechas.innerHTML = '';
+    var salida = new Date(fechaSalida);
+    var vuelta = new Date(fechaVuelta);
+
+    if (salida >= vuelta) {
+      mostrarError(errorFechas, 'La fecha de vuelta debe ser posterior a la fecha de salida');
+      return false;
+    } else if (salida.getTime() === vuelta.getTime()) {
+      mostrarError(errorFechas, 'Las fechas de salida y vuelta no pueden ser iguales');
+      return false;
+    } else {
+      errorFechas.innerHTML = '';
+      return true;
+    }
+  }
+}
+
+function validarRutas(origen, destino, errorRutas){
+  if (origen === 'Ingresa origen' || destino === 'Ingresa destino') {
+    mostrarError(errorRutas, 'Las rutas son requeridas');
+    return false;
+  } 
+  else if (origen.trim() === destino.trim()) {
+    mostrarError(errorRutas, 'Las rutas no pueden ser iguales');
+    return false;
+  } else {
+    errorRutas.innerHTML = '';
+    return true;
+  }
+}
+
+function validarEstrellasHotel(errorEstrellas) {
+  const estrellasSeleccionadas = document.querySelector('input[name="estrellasHotel"]:checked');
+  if (!estrellasSeleccionadas) {
+    mostrarError(errorEstrellas, 'Selecciona una opción de estrellas');
+    return false;
+  } else {
+    errorEstrellas.innerHTML = '';
     return true;
   }
 }
@@ -164,21 +199,27 @@ function validarFormulario() {
   const numeroWhatsapp = document.getElementById('numeroWhatsapp').value;
   const area = document.getElementById('area').value;
   const errorWhatsapp = document.getElementById('errorWhatsapp');
-  const mail = document.getElementById('mail').value;  
+  const mail = document.getElementById('mail').value;
   const errorMail = document.getElementById('errorMail');
-  const fechaSalida = document.getElementById('fechaSalida').value;  
-  const fechaVuelta = document.getElementById('fechaVuelta').value;  
+  const fechaSalida = document.getElementById('fechaSalida').value;
+  const fechaVuelta = document.getElementById('fechaVuelta').value;
   const errorFechas = document.getElementById('errorFechas');
-  // AGREGAR RUTA Y CATEGORIA
+  const origen = document.getElementById('origen').value;
+  const destino = document.getElementById('destino').value;
+  const errorRutas = document.getElementById('errorRutas');
+  const errorEstrellas = document.getElementById('errorEstrellas');
+  // AGREGAR CATEGORIA
 
   const nombreValido = validarNombre(nombre, errorNombre);
   const paisResidenciaValido = validarPaisResidencia(paisResidencia, errorPaisResidencia);
   const numeroWhatsappValido = validarNumeroWhatsapp(numeroWhatsapp, area, errorWhatsapp);
   const mailValido = validarMail(mail, errorMail);
   const fechasValido = validarFechas(fechaSalida, fechaVuelta, errorFechas);
+  const rutasValido = validarRutas(origen, destino, errorRutas);
+  const estrellasValidas = validarEstrellasHotel(errorEstrellas);
   // Validar otros campos y almacenar los resultados
 
-  return nombreValido && paisResidenciaValido && numeroWhatsappValido && mailValido && fechasValido;
+  return nombreValido && paisResidenciaValido && numeroWhatsappValido && mailValido && fechasValido && rutasValido && estrellasValidas;
 }
 
 document.getElementById('vueloHotel').addEventListener('submit', function (event) {
@@ -199,7 +240,9 @@ function handleSubmit(event) {
     mail: document.getElementById('mail').value,
     fechaSalida: document.getElementById('fechaSalida').value,
     fechaVuelta: document.getElementById('fechaVuelta').value,
-
+    origen: document.getElementById('origen').value,
+    destino: document.getElementById('destino').value,
+    estrellasHotel: document.querySelector('input[name="estrellasHotel"]:checked').value,
   };
   console.log(formData);
   vaciarCampos();

@@ -73,28 +73,11 @@ label,
     color: #2e0049;
 }
 
-input,
-.contenedorSelectPaisResidencia .select2-container,
-.contenedorInputOrigen .select2-container,
-.contenedorInputDestino .select2-container {
-    width: 100% !important;
-    border-radius: 6px;
-    padding: 3%;
-    border: 1px solid #d3245c !important;
-    outline: none;
-}
-
 input:focus,
 .contenedorSelectPaisResidencia .select2-container:focus,
 .contenedorInputOrigen .select2-container:focus,
 .contenedorInputDestino .select2-container:focus {
     border: 2px solid #d3245c !important;
-}
-
-.contenedorSelectPaisResidencia .select2-container,
-.contenedorInputOrigen .select2-container,
-.contenedorInputDestino .select2-container {
-    padding: 1% 3% !important;
 }
 
 .contenedorSelectPaisResidencia .select2-container--default .select2-container--open,
@@ -134,6 +117,29 @@ select {
     border-color: #d3245c transparent transparent transparent !important;
 }
 
+input,
+.contenedorSelectPaisResidencia .select2-container,
+.contenedorInputOrigen .select2-container,
+.contenedorInputDestino .select2-container {
+    width: 100% !important;
+    border-radius: 6px;
+    padding-left: 30px !important;
+    padding: 3%;
+    border: 1px solid #d3245c !important;
+    outline: none;
+}
+
+.contenedorSelectPaisResidencia .select2-container,
+.contenedorInputOrigen .select2-container,
+.contenedorInputDestino .select2-container {
+    padding: 1% 3% !important;
+    padding-left: 22px !important;
+}
+
+.inputNumeroWhatsapp {
+    padding-left: 10px !important;
+}
+
 .inputNombre,
 .contenedorSelectPaisResidencia .select2-container,
 .contenedorInputOrigen .select2-container,
@@ -141,7 +147,6 @@ select {
 .inputArea,
 .inputMail,
 .inputFecha {
-    padding-left: 30px !important;
     background-size: 12px 12px;
     background-position: 10px center;
     background-repeat: no-repeat;
@@ -361,8 +366,14 @@ select {
     .inputArea,
     .inputMail,
     .inputFecha {
-        padding-left: 35px !important;
+        padding-left: 32px !important;
         background-size: 0.9rem 0.9rem;
+    }
+
+    .contenedorSelectPaisResidencia .select2-container,
+    .contenedorInputOrigen .select2-container,
+    .contenedorInputDestino .select2-container {
+        padding-left: 25px !important;
     }
 
     .opcionEstrellas {
@@ -431,7 +442,7 @@ select {
     .inputArea,
     .inputMail,
     .inputFecha {
-        padding: 2.5% 6.5% !important;
+        padding: 2.5% 7% !important;
         background-size: 1rem 1rem;
     }
 
@@ -443,6 +454,7 @@ select {
     .contenedorInputOrigen .select2-container,
     .contenedorInputDestino .select2-container {
         padding: 1.5% 6.5% !important;
+        padding-left: 26px !important;
         background-size: 1rem 1rem;
     }
 
@@ -468,6 +480,19 @@ select {
     .contenedorInputOrigen .select2-container--default .select2-selection--single .select2-selection__arrow,
     .contenedorInputDestino .select2-container--default .select2-selection--single .select2-selection__arrow {
         top: 10px;
+    }
+
+    .inputNombre,
+    .inputArea,
+    .inputMail,
+    .inputFecha {
+        padding-left: 33px !important;
+    }
+
+    .contenedorSelectPaisResidencia .select2-container,
+    .contenedorInputOrigen .select2-container,
+    .contenedorInputDestino .select2-container {
+        padding-left: 26px !important;
     }
 
     .opcionEstrellas {
@@ -529,6 +554,13 @@ select {
     .contenedorInputDestino .select2-container {
         background-size: 1.2rem 1.2rem;
         padding: 1.25% 4.5% !important;
+    }
+
+    .inputNombre,
+    .inputArea,
+    .inputMail,
+    .inputFecha {
+        padding-left: 37px !important;
     }
 
     .btnSubmit {
@@ -598,6 +630,19 @@ select {
         font-size: 1.3rem;
     }
 
+    .inputNombre,
+    .inputArea,
+    .inputMail,
+    .inputFecha {
+        padding-left: 38px !important;
+    }
+
+    .contenedorSelectPaisResidencia .select2-container,
+    .contenedorInputOrigen .select2-container,
+    .contenedorInputDestino .select2-container {
+        padding-left: 30px !important;
+    }
+
     .opcionEstrellas {
         width: 16.25rem;
     }
@@ -617,19 +662,20 @@ select {
 
     .vueloMasHotel {
         display: flex;
-        justify-content: space-around;
+        justify-content: space-between;
         border-radius: 18px;
-        padding: 0 1rem;
+        padding: 0 2rem;
     }
 
     .imagenVueloHotel {
-        width: 44%;
-        display: block;
+        width: 40%;
+        display: flex;
+        align-items: flex-end;
     }
 
     .imagenVueloHotel img {
-        width: 100%;
-        height: 100%;
+        width: 120%;
+        object-fit: contain;
     }
 
     .contenedorFormulario {
@@ -720,7 +766,7 @@ select {
         font-size: 1.3rem;
     }
 
-    .error{
+    .error {
         align-items: baseline;
     }
 }
@@ -732,6 +778,19 @@ select {
 }
 
 @media only screen and (min-width: 1200px) {
+    .inputNombre,
+    .inputArea,
+    .inputMail,
+    .inputFecha {
+        padding-left: 36px !important;
+    }
+
+    .contenedorSelectPaisResidencia .select2-container,
+    .contenedorInputOrigen .select2-container,
+    .contenedorInputDestino .select2-container {
+        padding-left: 29px !important;
+    }
+    
     .opcionEstrellas {
         width: 19.75rem;
     }
@@ -744,6 +803,14 @@ select {
 
     main p {
         font-size: 1.3rem;
+    }
+
+    .imagenVueloHotel{
+        width: 50%;
+    }
+
+    .imagenVueloHotel img {
+        width: 95%;
     }
 
     label,
@@ -778,6 +845,19 @@ select {
 }
 
 @media only screen and (min-width: 1350px) {
+    .inputNombre,
+    .inputArea,
+    .inputMail,
+    .inputFecha {
+        padding-left: 38px !important;
+    }
+
+    .contenedorSelectPaisResidencia .select2-container,
+    .contenedorInputOrigen .select2-container,
+    .contenedorInputDestino .select2-container {
+        padding-left: 31px !important;
+    }
+    
     .opcionEstrellas {
         width: 22.5rem;
     }
@@ -884,6 +964,19 @@ select {
         padding: 3.5% 10% !important;
     }
 
+    .inputNombre,
+    .inputArea,
+    .inputMail,
+    .inputFecha {
+        padding-left: 37px !important;
+    }
+
+    .contenedorSelectPaisResidencia .select2-container,
+    .contenedorInputOrigen .select2-container,
+    .contenedorInputDestino .select2-container {
+        padding-left: 30px !important;
+    }
+
     .btnSubmit {
         font-size: 1.6rem;
     }
@@ -972,6 +1065,19 @@ select {
     .contenedorInputOrigen .select2-container,
     .contenedorInputDestino .select2-container {
         padding: 3.4% 8% !important;
+    }
+
+    .inputNombre,
+    .inputArea,
+    .inputMail,
+    .inputFecha {
+        padding-left: 38px !important;
+    }
+
+    .contenedorSelectPaisResidencia .select2-container,
+    .contenedorInputOrigen .select2-container,
+    .contenedorInputDestino .select2-container {
+        padding-left: 31px !important;
     }
 
     .btnSubmit {
