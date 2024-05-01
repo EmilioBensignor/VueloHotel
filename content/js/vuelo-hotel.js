@@ -134,7 +134,7 @@ function validarMail(mail, errorMail) {
 
 function validarNumeroWhatsapp(numeroWhatsapp, area, errorWhatsapp) {
   if (numeroWhatsapp.trim() === '' || area.trim() === '') {
-    mostrarError(errorWhatsapp, 'El número y área son requeridos');
+    mostrarError(errorWhatsapp, 'Área y número son requeridos');
     return false;
   } else if (parseInt(numeroWhatsapp) <= 0) {
     mostrarError(errorWhatsapp, 'El número de WhatsApp no es válido');
@@ -191,6 +191,21 @@ function validarEstrellasHotel(errorEstrellas) {
   }
 }
 
+document.addEventListener('DOMContentLoaded', function() {
+  const btnCambio = document.getElementById('btnCambio');
+  btnCambio.addEventListener('click', intercambiarOrigenDestino);
+});
+
+function intercambiarOrigenDestino() {
+  const origen = $('#origen');
+  const destino = $('#destino');
+
+  const temp = origen.val();
+  origen.val(destino.val()).trigger('change');
+  destino.val(temp).trigger('change');
+}
+
+
 function validarFormulario() {
   const nombre = document.getElementById('nombre').value;
   const errorNombre = document.getElementById('errorNombre');
@@ -208,7 +223,6 @@ function validarFormulario() {
   const destino = document.getElementById('destino').value;
   const errorRutas = document.getElementById('errorRutas');
   const errorEstrellas = document.getElementById('errorEstrellas');
-  // AGREGAR CATEGORIA
 
   const nombreValido = validarNombre(nombre, errorNombre);
   const paisResidenciaValido = validarPaisResidencia(paisResidencia, errorPaisResidencia);
@@ -217,7 +231,6 @@ function validarFormulario() {
   const fechasValido = validarFechas(fechaSalida, fechaVuelta, errorFechas);
   const rutasValido = validarRutas(origen, destino, errorRutas);
   const estrellasValidas = validarEstrellasHotel(errorEstrellas);
-  // Validar otros campos y almacenar los resultados
 
   return nombreValido && paisResidenciaValido && numeroWhatsappValido && mailValido && fechasValido && rutasValido && estrellasValidas;
 }
@@ -250,13 +263,24 @@ function handleSubmit(event) {
 
 function vaciarCampos() {
   document.getElementById('nombre').value = '';
-  // Vaciar paisResidencia
+  $('#paisResidencia').val('Selecciona tu país').trigger('change');
   document.getElementById('area').value = '';
   document.getElementById('numeroWhatsapp').value = '';
   document.getElementById('mail').value = '';
   document.getElementById('fechaSalida').value = '';
   document.getElementById('fechaVuelta').value = '';
+  $('#origen').val('Ingresa origen').trigger('change');
+  $('#destino').val('Ingresa destino').trigger('change');
+  document.getElementById('3-estrellas').checked = false;
+  document.getElementById('4-estrellas').checked = false;
+  document.getElementById('5-estrellas').checked = false;
+
+  document.getElementById('img3Estrellas').src = "../content/img/3estrellas.png";
+  document.getElementById('img4Estrellas').src = "../content/img/4estrellas.png";
+  document.getElementById('img5Estrellas').src = "../content/img/5estrellas.png";
 }
+
+
 
 $(document).ready(function () {
   $('.selectPaisResidencia').select2();

@@ -73,11 +73,35 @@ label,
     color: #2e0049;
 }
 
+.contenedorRutas{
+    position: relative;
+}
+
+.btnCambio{
+    width: 24px;
+    height: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    z-index: 1;
+    right: 5%;
+    top: 45%;
+    background: #D3245C;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
 input:focus,
 .contenedorSelectPaisResidencia .select2-container:focus,
 .contenedorInputOrigen .select2-container:focus,
 .contenedorInputDestino .select2-container:focus {
     border: 2px solid #d3245c !important;
+}
+
+.select2-search__field{
+    padding: 2% 4% !important;
 }
 
 .contenedorSelectPaisResidencia .select2-container--default .select2-container--open,
@@ -111,10 +135,13 @@ select {
     color: #636363;
 }
 
-.contenedorSelectPaisResidencia .select2-container--default .select2-selection--single .select2-selection__arrow b,
-.contenedorInputOrigen .select2-container--default .select2-selection--single .select2-selection__arrow b,
-.contenedorInputDestino .select2-container--default .select2-selection--single .select2-selection__arrow b {
+.contenedorSelectPaisResidencia .select2-container--default .select2-selection--single .select2-selection__arrow b{
     border-color: #d3245c transparent transparent transparent !important;
+}
+
+.contenedorInputOrigen .select2-container--default .select2-selection--single .select2-selection__arrow b,
+.contenedorInputDestino .select2-container--default .select2-selection--single .select2-selection__arrow b{
+    border-color: transparent;
 }
 
 input,
@@ -303,6 +330,7 @@ input,
 }
 
 .error {
+    height: 15px;
     display: flex;
     flex-direction: row;
     align-items: flex-end;
@@ -767,7 +795,7 @@ input,
     }
 
     .error {
-        align-items: baseline;
+        font-size: 0.8rem;
     }
 }
 
