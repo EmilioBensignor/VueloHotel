@@ -180,31 +180,31 @@ input,
 }
 
 .inputNombre {
-    background-image: url("/content/img/icono-nombre.png");
+    background-image: url("/content/img/formVueloHotel/icon-nombre.svg");
 }
 
 .contenedorSelectPaisResidencia .select2-container {
-    background-image: url("/content/img/icono-residencia.png");
+    background-image: url("/content/img/formVueloHotel/icon-pais.svg");
 }
 
 .inputArea {
-    background-image: url("/content/img/icono-whatsapp.png");
+    background-image: url("/content/img/formVueloHotel/icon-whatsapp.svg");
 }
 
 .inputMail {
-    background-image: url("/content/img/icono-mail.png");
+    background-image: url("/content/img/formVueloHotel/icon-mail.svg");
 }
 
 .inputFecha {
-    background-image: url("/content/img/icono-fechas.png");
+    background-image: url("/content/img/formVueloHotel/icon-calendario.svg");
 }
 
 .contenedorInputOrigen .select2-container {
-    background-image: url("/content/img/icono-origen.png");
+    background-image: url("/content/img/formVueloHotel/icon-origen.svg");
 }
 
 .contenedorInputDestino .select2-container {
-    background-image: url("/content/img/icono-destino.png");
+    background-image: url("/content/img/formVueloHotel/icon-destino.svg");
 }
 
 .select2-dropdown {

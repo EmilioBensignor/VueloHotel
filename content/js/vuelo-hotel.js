@@ -84,7 +84,7 @@ function cambiarEstrellas(event) {
 
 function mostrarError(elemento, mensaje) {
   const errorIcon = document.createElement('img');
-  errorIcon.src = "/content/img/error-icon.png";
+  errorIcon.src = "/content/img/formVueloHotel/icon-error.svg";
   errorIcon.className = 'errorIcon';
   const errorText = document.createElement('p');
   errorText.className = 'error';
