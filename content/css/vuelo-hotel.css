@@ -18,6 +18,7 @@ h2 {
 main p {
     font-size: 0.75rem;
     color: white;
+    margin: 0;
 }
 
 .vueloMasHotel {
@@ -73,11 +74,11 @@ label,
     color: #2e0049;
 }
 
-.contenedorRutas{
+.contenedorRutas {
     position: relative;
 }
 
-.btnCambio{
+.btnCambio {
     width: 24px;
     height: 24px;
     display: flex;
@@ -100,7 +101,7 @@ input:focus,
     border: 2px solid #d3245c !important;
 }
 
-.select2-search__field{
+.select2-search__field {
     padding: 2% 4% !important;
 }
 
@@ -113,12 +114,14 @@ input:focus,
 .contenedorSelectPaisResidencia .select2-container--default .select2-selection--single,
 .contenedorInputOrigen .select2-container--default .select2-selection--single,
 .contenedorInputDestino .select2-container--default .select2-selection--single {
+    height: auto !important;
     border: none !important;
 }
 
 .contenedorSelectPaisResidencia .select2-container .select2-selection--single .select2-selection__rendered,
 .contenedorInputOrigen .select2-container .select2-selection--single .select2-selection__rendered,
 .contenedorInputDestino .select2-container .select2-selection--single .select2-selection__rendered {
+    padding: none !important;
     font-size: 0.8rem;
     font-weight: 600;
     color: #636363;
@@ -135,13 +138,18 @@ select {
     color: #636363;
 }
 
-.contenedorSelectPaisResidencia .select2-container--default .select2-selection--single .select2-selection__arrow b{
+.contenedorSelectPaisResidencia .select2-container--default .select2-selection--single .select2-selection__arrow b {
     border-color: #d3245c transparent transparent transparent !important;
 }
 
 .contenedorInputOrigen .select2-container--default .select2-selection--single .select2-selection__arrow b,
-.contenedorInputDestino .select2-container--default .select2-selection--single .select2-selection__arrow b{
+.contenedorInputDestino .select2-container--default .select2-selection--single .select2-selection__arrow b {
     border-color: transparent;
+}
+
+.contenedorInputOrigen .select2-container--default .select2-selection--single .select2-selection__arrow:after,
+.contenedorInputDestino .select2-container--default .select2-selection--single .select2-selection__arrow:after {
+    background: none !important;
 }
 
 input,
@@ -806,6 +814,7 @@ input,
 }
 
 @media only screen and (min-width: 1200px) {
+
     .inputNombre,
     .inputArea,
     .inputMail,
@@ -818,7 +827,7 @@ input,
     .contenedorInputDestino .select2-container {
         padding-left: 29px !important;
     }
-    
+
     .opcionEstrellas {
         width: 19.75rem;
     }
@@ -833,7 +842,7 @@ input,
         font-size: 1.3rem;
     }
 
-    .imagenVueloHotel{
+    .imagenVueloHotel {
         width: 50%;
     }
 
@@ -873,6 +882,7 @@ input,
 }
 
 @media only screen and (min-width: 1350px) {
+
     .inputNombre,
     .inputArea,
     .inputMail,
@@ -885,7 +895,7 @@ input,
     .contenedorInputDestino .select2-container {
         padding-left: 31px !important;
     }
-    
+
     .opcionEstrellas {
         width: 22.5rem;
     }
