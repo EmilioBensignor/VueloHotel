@@ -1,66 +1,9 @@
-const paisResidencia = document.getElementById('paisResidencia');
-const origen = document.getElementById('origen');
-const destino = document.getElementById('destino');
-
 const opcion3Estrellas = document.getElementById('opcion3Estrellas');
 const opcion4Estrellas = document.getElementById('opcion4Estrellas');
 const opcion5Estrellas = document.getElementById('opcion5Estrellas');
 const img3Estrellas = document.getElementById('img3Estrellas');
 const img4Estrellas = document.getElementById('img4Estrellas');
 const img5Estrellas = document.getElementById('img5Estrellas');
-
-const optionsPaisResidencia = [
-  "Selecciona tu país",
-  "Argentina",
-  "Brasil",
-  "Chile",
-  "India",
-  "Indonesia",
-  "Canada",
-  "Australia",
-  "Francia",
-  "Italia",
-];
-const optionsOrigen = [
-  "Ingresa un país",
-  "Argentina",
-  "Brasil",
-  "Chile",
-  "India",
-  "Indonesia",
-  "Canada",
-  "Australia",
-  "Francia",
-  "Italia",
-];
-const optionsDestino = [
-  "Ingresa un país",
-  "Argentina",
-  "Brasil",
-  "Chile",
-  "India",
-  "Indonesia",
-  "Canada",
-  "Australia",
-  "Francia",
-  "Italia",
-];
-
-for (let i = 0; i < optionsPaisResidencia.length; i++) {
-  paisResidencia.innerHTML += `
-    <option value="${optionsPaisResidencia[i]}">${optionsPaisResidencia[i]}</option>
-  `
-}
-for (let i = 0; i < optionsOrigen.length; i++) {
-  origen.innerHTML += `
-    <option value="${optionsOrigen[i]}">${optionsOrigen[i]}</option>
-  `
-}
-for (let i = 0; i < optionsDestino.length; i++) {
-  destino.innerHTML += `
-    <option value="${optionsDestino[i]}">${optionsDestino[i]}</option>
-  `
-}
 
 opcion3Estrellas.addEventListener("change", cambiarEstrellas);
 opcion4Estrellas.addEventListener("change", cambiarEstrellas);
@@ -322,14 +265,82 @@ $(document).ready(function () {
 });
 $(document).ready(function () {
   $('.selectOrigen').select2({
-    data: optionsOrigen,
-    matcher: matchCustom,
+    language: {
+      inputTooShort: function (args) {
+        return "Ingresa 3 o m\u00E1s caracteres";
+      },
+      errorLoading: function () {
+        return "Error";
+      },
+      loadingMore: function () {
+        return "Cargando m\u00E1s";
+      },
+      noResults: function () {
+        return "No se encontraron resultados";
+      },
+      searching: function () {
+        return "Buscando...";
+      }
+    },
+    minimumResultsForSearch: Infinity,
+    maximumSelectionLength: 1,
+    dropdownCssClass: "search",
+    ajax: {
+      url: '/cgi-bin/tedestinos.pl',
+      dataType: 'json',
+      delay: 250,
+      data: function (data) {
+        return {
+          term: data.term
+        };
+      },
+      processResults: function (response) {
+        return {
+          results: response
+        };
+      },
+      cache: true
+    }
   })
 });
 $(document).ready(function () {
   $('.selectDestino').select2({
-    data: optionsDestino,
-    matcher: matchCustom,
+    language: {
+      inputTooShort: function (args) {
+        return "Ingresa 3 o m\u00E1s caracteres";
+      },
+      errorLoading: function () {
+        return "Error";
+      },
+      loadingMore: function () {
+        return "Cargando m\u00E1s";
+      },
+      noResults: function () {
+        return "No se encontraron resultados";
+      },
+      searching: function () {
+        return "Buscando...";
+      }
+    },
+    minimumResultsForSearch: Infinity,
+    maximumSelectionLength: 1,
+    dropdownCssClass: "search",
+    ajax: {
+      url: '/cgi-bin/tedestinos.pl',
+      dataType: 'json',
+      delay: 250,
+      data: function (data) {
+        return {
+          term: data.term
+        };
+      },
+      processResults: function (response) {
+        return {
+          results: response
+        };
+      },
+      cache: true
+    }
   })
 });
 
