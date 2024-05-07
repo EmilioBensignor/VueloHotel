@@ -172,8 +172,16 @@ select {
 .contenedorSelectPaisResidencia .select2-container,
 .contenedorInputOrigen .select2-container,
 .contenedorInputDestino .select2-container {
-    padding: 1% 3% !important;
+    padding: 2% 3% !important;
     padding-left: 22px !important;
+}
+
+.inputNombre,
+.inputArea,
+.inputMail,
+.contenedorInputsFechas input {
+    padding: 3% !important;
+    padding-left: 28px !important;
 }
 
 .inputNumeroWhatsapp {
@@ -242,11 +250,11 @@ select {
     flex-direction: row;
 }
 
-.inputArea {
+.areaNumeroWhatsapp .inputArea {
     width: 30% !important;
 }
 
-.inputNumeroWhatsapp {
+.areaNumeroWhatsapp .inputNumeroWhatsapp {
     width: 70% !important;
 }
 
@@ -407,8 +415,14 @@ select {
     .inputArea,
     .inputMail,
     .inputFecha {
-        padding-left: 32px !important;
         background-size: 0.9rem 0.9rem;
+    }
+
+    .inputNombre,
+    .inputArea,
+    .inputMail,
+    .contenedorInputsFechas input {
+        padding-left: 35px !important;
     }
 
     .contenedorSelectPaisResidencia .select2-container,
@@ -530,14 +544,14 @@ select {
     .inputNombre,
     .inputArea,
     .inputMail,
-    .inputFecha {
-        padding-left: 33px !important;
+    .contenedorInputsFechas input {
+        padding-left: 37px !important;
     }
 
     .contenedorSelectPaisResidencia .select2-container,
     .contenedorInputOrigen .select2-container,
     .contenedorInputDestino .select2-container {
-        padding-left: 26px !important;
+        padding-left: 27px !important;
     }
 
     .opcionEstrellas {
@@ -770,14 +784,14 @@ select {
         width: 48%;
     }
 
-    .inputArea {
+    .areaNumeroWhatsapp .inputArea {
         width: 40% !important;
     }
 
     .inputNombre,
     .inputArea,
     .inputMail,
-    .inputFecha {
+    .contenedorInputsFechas .inputFecha {
         padding: 7% 0 7% 17% !important;
     }
 
@@ -792,7 +806,7 @@ select {
     .contenedorSelectPaisResidencia .select2-container,
     .contenedorInputOrigen .select2-container,
     .contenedorInputDestino .select2-container {
-        padding: 5% 14% !important;
+        padding: 4% 14% !important;
     }
 
     .areaNumeroWhatsapp {

@@ -22,7 +22,7 @@ const optionsPaisResidencia = [
   "Italia",
 ];
 const optionsOrigen = [
-  "Ingresa origen",
+  "Ingresa un país",
   "Argentina",
   "Brasil",
   "Chile",
@@ -34,7 +34,7 @@ const optionsOrigen = [
   "Italia",
 ];
 const optionsDestino = [
-  "Ingresa destino",
+  "Ingresa un país",
   "Argentina",
   "Brasil",
   "Chile",
@@ -167,11 +167,11 @@ function validarFechas(fechaSalida, fechaVuelta, errorFechas) {
   }
 }
 
-function validarRutas(origen, destino, errorRutas){
+function validarRutas(origen, destino, errorRutas) {
   if (origen === 'Ingresa origen' || destino === 'Ingresa destino') {
     mostrarError(errorRutas, 'Las rutas son requeridas');
     return false;
-  } 
+  }
   else if (origen.trim() === destino.trim()) {
     mostrarError(errorRutas, 'Las rutas no pueden ser iguales');
     return false;
@@ -192,26 +192,29 @@ function validarEstrellasHotel(errorEstrellas) {
   }
 }
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
   const btnCambio = document.getElementById('btnCambio');
   btnCambio.addEventListener('click', intercambiarOrigenDestino);
 });
 
 function intercambiarOrigenDestino() {
+  const errorRutas = document.getElementById('errorRutas');
   const origen = $('#origen');
   const destino = $('#destino');
 
-  // Obtener los datos seleccionados y sus etiquetas
-  const origenData = origen.select2('data');
-  const destinoData = destino.select2('data');
+  if (origen.val() && destino.val()) {
+    const temp = origen.val();
+    origen.val(destino.val());
+    destino.val(temp);
 
-  // Intercambiar los valores y etiquetas de texto
-  origen.select2('data', destinoData);
-  destino.select2('data', origenData);
+    origen.select2('destroy');
+    destino.select2('destroy');
+    origen.select2();
+    destino.select2();
 
-  // Disparar el evento de cambio para ambos selectores
-  origen.trigger('change.select2');
-  destino.trigger('change.select2');
+  } else {
+    mostrarError(errorRutas, 'Ambas rutas deben tener un valor para intercambiar');
+  }
 }
 
 function validarFormulario() {
@@ -288,16 +291,46 @@ function vaciarCampos() {
   document.getElementById('img5Estrellas').src = "../content/img/5estrellas.png";
 }
 
+function matchCustom(params, data) {
+  // If there are no search terms, return all of the data
+  if ($.trim(params.term) === '') {
+    return data;
+  }
 
+  // Do not display the item if there is no 'text' property
+  if (typeof data.text === 'undefined') {
+    return null;
+  }
+
+  // `params.term` should be the term that is used for searching
+  // `data.text` is the text that is displayed for the data object
+  if (data.text.indexOf(params.term) > -1) {
+    var modifiedData = $.extend({}, data, true);
+    modifiedData.text += ' (matched)';
+
+    // You can return modified objects from here
+    // This includes matching the `children` how you want in nested data sets
+    return modifiedData;
+  }
+
+  // Return `null` if the term should not be displayed
+  return null;
+}
 
 $(document).ready(function () {
   $('.selectPaisResidencia').select2();
 });
 $(document).ready(function () {
-  $('.selectOrigen').select2();
+  $('.selectOrigen').select2({
+    data: optionsOrigen,
+    matcher: matchCustom,
+  })
 });
 $(document).ready(function () {
-  $('.selectDestino').select2();
+  $('.selectDestino').select2({
+    data: optionsDestino,
+    matcher: matchCustom,
+  })
 });
 
 $(function () {
