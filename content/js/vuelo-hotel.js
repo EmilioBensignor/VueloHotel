@@ -68,17 +68,17 @@ opcion5Estrellas.addEventListener("change", cambiarEstrellas);
 function cambiarEstrellas(event) {
   const opcionSeleccionada = event.target;
   if (opcionSeleccionada.id === '3-estrellas' && opcionSeleccionada.checked) {
-    img3Estrellas.src = "../content/img/3estrellasSeleccionado.png";
-    img4Estrellas.src = "../content/img/4estrellas.png";
-    img5Estrellas.src = "../content/img/5estrellas.png";
+    img3Estrellas.src = "../content/img/3-estrellas-seleccionado.svg";
+    img4Estrellas.src = "../content/img/4-estrellas.svg";
+    img5Estrellas.src = "../content/img/5-estrellas.svg";
   } else if (opcionSeleccionada.id === '4-estrellas' && opcionSeleccionada.checked) {
-    img3Estrellas.src = "../content/img/3estrellas.png";
-    img4Estrellas.src = "../content/img/4estrellasSeleccionado.png";
-    img5Estrellas.src = "../content/img/5estrellas.png";
+    img3Estrellas.src = "../content/img/3-estrellas.svg";
+    img4Estrellas.src = "../content/img/4-estrellas-seleccionado.svg";
+    img5Estrellas.src = "../content/img/5-estrellas.svg";
   } else if (opcionSeleccionada.id === '5-estrellas' && opcionSeleccionada.checked) {
-    img3Estrellas.src = "../content/img/3estrellas.png";
-    img4Estrellas.src = "../content/img/4estrellas.png";
-    img5Estrellas.src = "../content/img/5estrellasSeleccionado.png";
+    img3Estrellas.src = "../content/img/3-estrellas.svg";
+    img4Estrellas.src = "../content/img/4-estrellas.svg";
+    img5Estrellas.src = "../content/img/5-estrellas-seleccionado.svg";
   }
 }
 

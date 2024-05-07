@@ -60,15 +60,15 @@
             <div class="contenedorWhatsapp">
               <label for="numeroWhatsapp">Número de Whatsapp</label>
               <div class="areaNumeroWhatsapp">
-                <input class="inputArea" id="area" type="text" placeholder="Área">
-                <input class="inputNumeroWhatsapp" id="numeroWhatsapp" type="number" placeholder="Número"
+                <input class="inputArea" id="area" name="area" type="text" placeholder="Área">
+                <input class="inputNumeroWhatsapp" id="numeroWhatsapp" name="whatsapp" type="number" placeholder="Número"
                   autocomplete="none">
               </div>
               <div id="errorWhatsapp" class="error"></div>
             </div>
             <div class="contenedorMail">
               <label for="mail">Mail</label>
-              <input class="inputMail" id="mail" type="email" placeholder="Ingresa tu mail">
+              <input class="inputMail" id="mail" name="email" type="email" placeholder="Ingresa tu mail">
               <div id="errorMail" class="error"></div>
             </div>
           </div>
@@ -87,13 +87,17 @@
               <label for="origen">Selector de ruta</label>
               <div class="contenedorInputsRutas">
                 <div class="contenedorInputOrigen">
-                  <select width="100%" class="selectOrigen" name="origen" id="origen"></select>
+                  <select width="100%" class="selectOrigen" name="origen" id="origen">
+                  
+                    </select>
                 </div>
                 <button type="button" id="btnCambio" class="btnCambio">
                   <img src="/content/img/formVueloHotel/cambio-ruta.svg" alt="icono-cambio">
                 </button>
                 <div class="contenedorInputDestino">
-                  <select width="100%" class="selectDestino" name="destino" id="destino"></select>
+                  <select width="100%" class="selectDestino" name="destino" id="destino">
+                    
+                    </select>
                 </div>
               </div>
               <div id="errorRutas" class="error"></div>
