@@ -263,86 +263,89 @@ function matchCustom(params, data) {
 $(document).ready(function () {
   $('.selectPaisResidencia').select2();
 });
-$(document).ready(function () {
-  $('.selectOrigen').select2({
-    language: {
-      inputTooShort: function (args) {
-        return "Ingresa 3 o m\u00E1s caracteres";
+$('#origen').select2(
+  {
+  language: {
+      inputTooShort: function(args) {
+          return "Ingresa 3 o m\u00E1s caracteres";
       },
-      errorLoading: function () {
-        return "Error";
+      errorLoading: function() {
+          return "Error";
       },
-      loadingMore: function () {
-        return "Cargando m\u00E1s";
+      loadingMore: function() {
+          return "Cargando m\u00E1s";
       },
-      noResults: function () {
-        return "No se encontraron resultados";
+      noResults: function() {
+          return "No se encontraron resultados";
       },
-      searching: function () {
-        return "Buscando...";
+      searching: function() {
+          return "Buscando...";
       }
-    },
-    minimumResultsForSearch: Infinity,
-    maximumSelectionLength: 1,
-    dropdownCssClass: "search",
-    ajax: {
+  },
+  minimumResultsForSearch: Infinity,
+  maximumSelectionLength: 1,
+  dropdownCssClass : "search",
+  minimumInputLength : 3,
+  'dropdownParent': $('#origen').parent(),
+  ajax: {
       url: '/cgi-bin/tedestinos.pl',
       dataType: 'json',
       delay: 250,
       data: function (data) {
-        return {
-          term: data.term
-        };
+          return {
+              term: data.term
+          };
       },
       processResults: function (response) {
-        return {
-          results: response
-        };
+          return {
+              results:response
+          };
       },
       cache: true
-    }
-  })
-});
-$(document).ready(function () {
-  $('.selectDestino').select2({
-    language: {
-      inputTooShort: function (args) {
-        return "Ingresa 3 o m\u00E1s caracteres";
-      },
-      errorLoading: function () {
-        return "Error";
-      },
-      loadingMore: function () {
-        return "Cargando m\u00E1s";
-      },
-      noResults: function () {
-        return "No se encontraron resultados";
-      },
-      searching: function () {
-        return "Buscando...";
       }
-    },
-    minimumResultsForSearch: Infinity,
-    maximumSelectionLength: 1,
-    dropdownCssClass: "search",
-    ajax: {
+  });
+
+$('#destino').select2(
+  {
+  language: {
+      inputTooShort: function(args) {
+          return "Ingresa 3 o m\u00E1s caracteres";
+      },
+      errorLoading: function() {
+          return "Error";
+      },
+      loadingMore: function() {
+          return "Cargando m\u00E1s";
+      },
+      noResults: function() {
+          return "No se encontraron resultados";
+      },
+      searching: function() {
+          return "Buscando...";
+      }
+  },
+  minimumResultsForSearch: Infinity,
+  maximumSelectionLength: 1,
+  dropdownCssClass : "search",
+  minimumInputLength : 3,
+  'dropdownParent': $('#destino').parent(),
+  ajax: {
       url: '/cgi-bin/tedestinos.pl',
       dataType: 'json',
       delay: 250,
       data: function (data) {
-        return {
-          term: data.term
-        };
+          return {
+              term: data.term
+          };
       },
       processResults: function (response) {
-        return {
-          results: response
-        };
+          return {
+              results:response
+          };
       },
       cache: true
-    }
-  })
-});
+      }
+  });
 
 $(function () {
   $('input[name="fechaVuelta"]').daterangepicker({
