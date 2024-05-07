@@ -1,6 +1,7 @@
 const paisResidencia = document.getElementById('paisResidencia');
 const origen = document.getElementById('origen');
 const destino = document.getElementById('destino');
+
 const opcion3Estrellas = document.getElementById('opcion3Estrellas');
 const opcion4Estrellas = document.getElementById('opcion4Estrellas');
 const opcion5Estrellas = document.getElementById('opcion5Estrellas');
@@ -68,17 +69,17 @@ opcion5Estrellas.addEventListener("change", cambiarEstrellas);
 function cambiarEstrellas(event) {
   const opcionSeleccionada = event.target;
   if (opcionSeleccionada.id === '3-estrellas' && opcionSeleccionada.checked) {
-    img3Estrellas.src = "../content/img/3-estrellas-seleccionado.svg";
-    img4Estrellas.src = "../content/img/4-estrellas.svg";
-    img5Estrellas.src = "../content/img/5-estrellas.svg";
+    img3Estrellas.src = "/content/img/formVueloHotel/3-estrellas-seleccionado.svg";
+    img4Estrellas.src = "/content/img/formVueloHotel/4-estrellas.svg";
+    img5Estrellas.src = "/content/img/formVueloHotel/5-estrellas.svg";
   } else if (opcionSeleccionada.id === '4-estrellas' && opcionSeleccionada.checked) {
-    img3Estrellas.src = "../content/img/3-estrellas.svg";
-    img4Estrellas.src = "../content/img/4-estrellas-seleccionado.svg";
-    img5Estrellas.src = "../content/img/5-estrellas.svg";
+    img3Estrellas.src = "/content/img/formVueloHotel/3-estrellas.svg";
+    img4Estrellas.src = "/content/img/formVueloHotel/4-estrellas-seleccionado.svg";
+    img5Estrellas.src = "/content/img/formVueloHotel/5-estrellas.svg";
   } else if (opcionSeleccionada.id === '5-estrellas' && opcionSeleccionada.checked) {
-    img3Estrellas.src = "../content/img/3-estrellas.svg";
-    img4Estrellas.src = "../content/img/4-estrellas.svg";
-    img5Estrellas.src = "../content/img/5-estrellas-seleccionado.svg";
+    img3Estrellas.src = "/content/img/formVueloHotel/3-estrellas.svg";
+    img4Estrellas.src = "/content/img/formVueloHotel/4-estrellas.svg";
+    img5Estrellas.src = "/content/img/formVueloHotel/5-estrellas-seleccionado.svg";
   }
 }
 
@@ -200,11 +201,18 @@ function intercambiarOrigenDestino() {
   const origen = $('#origen');
   const destino = $('#destino');
 
-  const temp = origen.val();
-  origen.val(destino.val()).trigger('change');
-  destino.val(temp).trigger('change');
-}
+  // Obtener los datos seleccionados y sus etiquetas
+  const origenData = origen.select2('data');
+  const destinoData = destino.select2('data');
 
+  // Intercambiar los valores y etiquetas de texto
+  origen.select2('data', destinoData);
+  destino.select2('data', origenData);
+
+  // Disparar el evento de cambio para ambos selectores
+  origen.trigger('change.select2');
+  destino.trigger('change.select2');
+}
 
 function validarFormulario() {
   const nombre = document.getElementById('nombre').value;
