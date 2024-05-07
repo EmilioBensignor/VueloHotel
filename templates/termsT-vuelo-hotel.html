@@ -9,7 +9,8 @@
   <meta name="HandheldFriendly" content="true">
   <meta name="robots" content="index,follow">
   <meta name="title" content="Solicita tu próximo viaje: Vuelo + Hotel">
-  <meta name="description" content="¿Buscas vuelo y hotel para tu próximo destino? Completa nuestro formulario y recibe propuestas personalizadas que se ajusten a tus preferencias y presupuesto. ¡Haz realidad tu viaje soñado con Tour Experto!">
+  <meta name="description"
+    content="¿Buscas vuelo y hotel para tu próximo destino? Completa nuestro formulario y recibe propuestas personalizadas que se ajusten a tus preferencias y presupuesto. ¡Haz realidad tu viaje soñado con Tour Experto!">
   <title>Vuelos + Hotel</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -50,7 +51,14 @@
             <div class="contenedorPaisResidencia">
               <label for="paisResidencia">País de residencia </label>
               <div class="contenedorSelectPaisResidencia">
-                <select width="100%" class="selectPaisResidencia" name="paisResidencia" id="paisResidencia"></select>
+                <select width="100%" class="selectPaisResidencia" name="paisResidencia" id="paisResidencia">
+                  <option value=""></option>
+                  <!--nacionalidad-->
+                  <option value="<!--id-->" <!--selected--></option>
+                  <!--des-->
+                  </option>
+                  <!--finnacionalidad-->
+                </select>
               </div>
               <div id="errorPaisResidencia" class="error"></div>
             </div>
@@ -60,8 +68,8 @@
               <label for="numeroWhatsapp">Número de Whatsapp</label>
               <div class="areaNumeroWhatsapp">
                 <input class="inputArea" id="area" name="area" type="text" placeholder="Área">
-                <input class="inputNumeroWhatsapp" id="numeroWhatsapp" name="whatsapp" type="number" placeholder="Número"
-                  autocomplete="none">
+                <input class="inputNumeroWhatsapp" id="numeroWhatsapp" name="whatsapp" type="number"
+                  placeholder="Número" autocomplete="none">
               </div>
               <div id="errorWhatsapp" class="error"></div>
             </div>
@@ -87,16 +95,16 @@
               <div class="contenedorInputsRutas">
                 <div class="contenedorInputOrigen">
                   <select width="100%" class="selectOrigen" name="origen" id="origen">
-                  
-                    </select>
+
+                  </select>
                 </div>
                 <button type="button" id="btnCambio" class="btnCambio">
                   <img src="/content/img/formVueloHotel/cambio-ruta.svg" alt="icono-cambio">
                 </button>
                 <div class="contenedorInputDestino">
                   <select width="100%" class="selectDestino" name="destino" id="destino">
-                    
-                    </select>
+
+                  </select>
                 </div>
               </div>
               <div id="errorRutas" class="error"></div>
