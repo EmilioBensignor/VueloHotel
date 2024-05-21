@@ -94,11 +94,19 @@ label,
     cursor: pointer;
 }
 
+input{
+    height: 50px;
+}
+
 #vueloHotel input:focus,
 .contenedorSelectPaisResidencia .select2-container:focus,
 .contenedorInputOrigen .select2-container:focus,
 .contenedorInputDestino .select2-container:focus {
     border: 2px solid #d3245c !important;
+}
+
+.select2-container--default .select2-selection--single{
+    height: 30px;
 }
 
 .contenedorSelectPaisResidencia .select2-search__field,
@@ -116,21 +124,16 @@ label,
 .contenedorSelectPaisResidencia .select2-container--default .select2-selection--single,
 .contenedorInputOrigen .select2-container--default .select2-selection--single,
 .contenedorInputDestino .select2-container--default .select2-selection--single {
-    height: auto !important;
     border: none !important;
 }
 
-.contenedorSelectPaisResidencia .select2-container .select2-selection--single .select2-selection__rendered,
-.contenedorInputOrigen .select2-container .select2-selection--single .select2-selection__rendered,
-.contenedorInputDestino .select2-container .select2-selection--single .select2-selection__rendered {
-    padding-top: 0;
-    padding-bottom: 0;
-    font-size: 0.8rem;
-    font-weight: 600;
+.select2-container--default .select2-selection--single .select2-selection__placeholder {
     color: #636363;
+    font-family: "Raleway", sans-serif;
+    font-weight: 600;
 }
 
-::placeholder {
+::placeholder{
     color: #636363;
     font-family: "Raleway", sans-serif;
     font-size: 0.8rem;
@@ -153,6 +156,11 @@ select {
 .contenedorInputOrigen .select2-container--default .select2-selection--single .select2-selection__arrow:after,
 .contenedorInputDestino .select2-container--default .select2-selection--single .select2-selection__arrow:after {
     background: none !important;
+}
+
+.contenedorInputDestino .select2-container--open:last-child,
+.contenedorInputOrigen .select2-container--open:last-child{
+    border: none !important;
 }
 
 .contenedorNombre input,
