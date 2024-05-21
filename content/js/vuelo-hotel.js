@@ -55,7 +55,7 @@ function validarNombre(nombre, errorNombre) {
 }
 
 function validarPaisResidencia(paisResidencia, errorPaisResidencia) {
-  if (paisResidencia === 'Selecciona tu país') {
+  if (paisResidencia === '') {
     mostrarError(errorPaisResidencia, 'Elige un país')
   } else {
     errorPaisResidencia.innerHTML = '';
@@ -135,28 +135,33 @@ function validarEstrellasHotel(errorEstrellas) {
   }
 }
 
-document.addEventListener('DOMContentLoaded', function () {
-  const btnCambio = document.getElementById('btnCambio');
-  btnCambio.addEventListener('click', intercambiarOrigenDestino);
-});
-
-function intercambiarOrigenDestino() {
-  const errorRutas = document.getElementById('errorRutas');
+function intercambiarOrigenDestino(event) {
+  event.preventDefault();
   const origen = $('#origen');
   const destino = $('#destino');
 
-  if (origen.val() && destino.val()) {
-    const temp = origen.val();
-    origen.val(destino.val());
-    destino.val(temp);
+  // Valores iniciales
+  const origenVal = origen.val();
+  const destinoVal = destino.val();
 
-    origen.select2('destroy');
-    destino.select2('destroy');
-    origen.select2();
-    destino.select2();
+  // Agregar registros de depuración
+  console.log('Valor inicial de origen:', origenVal);
+  console.log('Valor inicial de destino:', destinoVal);
 
+  if (origenVal && destinoVal) {
+    // Intercambiar los valores
+    origen.val(destinoVal).trigger('change.select2');
+    destino.val(origenVal).trigger('change.select2');
+
+    // Actualizar visualmente Select2
+    origen.select2('destroy').select2();
+    destino.select2('destroy').select2();
+
+    // Registrar valores después del intercambio
+    console.log('Valor intercambiado de origen:', origen.val());
+    console.log('Valor intercambiado de destino:', destino.val());
   } else {
-    mostrarError(errorRutas, 'Ambas rutas deben tener un valor para intercambiar');
+    console.log('Ambas rutas deben tener un valor para intercambiar');
   }
 }
 
@@ -217,7 +222,7 @@ function handleSubmit(event) {
 
 function vaciarCampos() {
   document.getElementById('nombre').value = '';
-  $('#paisResidencia').val('Selecciona tu país').trigger('change');
+  $('#paisResidencia').val('País de residencia').trigger('change');
   document.getElementById('area').value = '';
   document.getElementById('numeroWhatsapp').value = '';
   document.getElementById('mail').value = '';
@@ -229,9 +234,9 @@ function vaciarCampos() {
   document.getElementById('4-estrellas').checked = false;
   document.getElementById('5-estrellas').checked = false;
 
-  document.getElementById('img3Estrellas').src = "../content/img/3estrellas.png";
-  document.getElementById('img4Estrellas').src = "../content/img/4estrellas.png";
-  document.getElementById('img5Estrellas').src = "../content/img/5estrellas.png";
+  document.getElementById('img3Estrellas').src = "/content/img/formVueloHotel/3-estrellas.svg";
+  document.getElementById('img4Estrellas').src = "/content/img/formVueloHotel/4-estrellas.svg";
+  document.getElementById('img5Estrellas').src = "/content/img/formVueloHotel/5-estrellas.svg";
 }
 
 function matchCustom(params, data) {
@@ -265,86 +270,86 @@ $(document).ready(function () {
 });
 $('#origen').select2(
   {
-  language: {
-      inputTooShort: function(args) {
-          return "Ingresa 3 o m\u00E1s caracteres";
+    language: {
+      inputTooShort: function (args) {
+        return "Ingresa 3 o m\u00E1s caracteres";
       },
-      errorLoading: function() {
-          return "Error";
+      errorLoading: function () {
+        return "Error";
       },
-      loadingMore: function() {
-          return "Cargando m\u00E1s";
+      loadingMore: function () {
+        return "Cargando m\u00E1s";
       },
-      noResults: function() {
-          return "No se encontraron resultados";
+      noResults: function () {
+        return "No se encontraron resultados";
       },
-      searching: function() {
-          return "Buscando...";
+      searching: function () {
+        return "Buscando...";
       }
-  },
-  minimumResultsForSearch: Infinity,
-  maximumSelectionLength: 1,
-  dropdownCssClass : "search",
-  minimumInputLength : 3,
-  'dropdownParent': $('#origen').parent(),
-  ajax: {
+    },
+    minimumResultsForSearch: Infinity,
+    maximumSelectionLength: 1,
+    dropdownCssClass: "search",
+    minimumInputLength: 3,
+    dropdownParent: $('#origen').parent(),
+    ajax: {
       url: '/cgi-bin/tedestinos.pl',
       dataType: 'json',
       delay: 250,
       data: function (data) {
-          return {
-              term: data.term
-          };
+        return {
+          term: data.term
+        };
       },
       processResults: function (response) {
-          return {
-              results:response
-          };
+        return {
+          results: response
+        };
       },
       cache: true
-      }
+    }
   });
 
 $('#destino').select2(
   {
-  language: {
-      inputTooShort: function(args) {
-          return "Ingresa 3 o m\u00E1s caracteres";
+    language: {
+      inputTooShort: function (args) {
+        return "Ingresa 3 o m\u00E1s caracteres";
       },
-      errorLoading: function() {
-          return "Error";
+      errorLoading: function () {
+        return "Error";
       },
-      loadingMore: function() {
-          return "Cargando m\u00E1s";
+      loadingMore: function () {
+        return "Cargando m\u00E1s";
       },
-      noResults: function() {
-          return "No se encontraron resultados";
+      noResults: function () {
+        return "No se encontraron resultados";
       },
-      searching: function() {
-          return "Buscando...";
+      searching: function () {
+        return "Buscando...";
       }
-  },
-  minimumResultsForSearch: Infinity,
-  maximumSelectionLength: 1,
-  dropdownCssClass : "search",
-  minimumInputLength : 3,
-  'dropdownParent': $('#destino').parent(),
-  ajax: {
+    },
+    minimumResultsForSearch: Infinity,
+    maximumSelectionLength: 1,
+    dropdownCssClass: "search",
+    minimumInputLength: 3,
+    dropdownParent: $('#destino').parent(),
+    ajax: {
       url: '/cgi-bin/tedestinos.pl',
       dataType: 'json',
       delay: 250,
       data: function (data) {
-          return {
-              term: data.term
-          };
+        return {
+          term: data.term
+        };
       },
       processResults: function (response) {
-          return {
-              results:response
-          };
+        return {
+          results: response
+        };
       },
       cache: true
-      }
+    }
   });
 
 $(function () {

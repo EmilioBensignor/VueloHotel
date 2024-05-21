@@ -362,11 +362,10 @@ select {
     height: 15px;
     display: flex;
     flex-direction: row;
-    align-items: flex-end;
+    align-items: center;
     gap: 0.3rem;
     color: #f03a36;
     font-size: 0.8rem;
-    margin-top: -0.25rem;
 }
 
 .errorIcon {
