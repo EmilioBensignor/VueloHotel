@@ -4,6 +4,8 @@ const opcion5Estrellas = document.getElementById('opcion5Estrellas');
 const img3Estrellas = document.getElementById('img3Estrellas');
 const img4Estrellas = document.getElementById('img4Estrellas');
 const img5Estrellas = document.getElementById('img5Estrellas');
+const modalForm = document.getElementById('modalForm');
+const cerrar = document.getElementsByClassName("cerrar")[0];
 
 opcion3Estrellas.addEventListener("change", cambiarEstrellas);
 opcion4Estrellas.addEventListener("change", cambiarEstrellas);
@@ -143,19 +145,37 @@ function intercambiarOrigenDestino(event) {
   // Valores iniciales
   const origenVal = origen.val();
   const destinoVal = destino.val();
+  const origenText = origen.select2('data')[0].text;  //codigo agregado
+  const destinoText = destino.select2('data')[0].text;   //codigo agregado
 
   // Agregar registros de depuración
   console.log('Valor inicial de origen:', origenVal);
   console.log('Valor inicial de destino:', destinoVal);
 
   if (origenVal && destinoVal) {
-    // Intercambiar los valores
-    origen.val(destinoVal).trigger('change.select2');
-    destino.val(origenVal).trigger('change.select2');
+    // Intercambiar los valores 
+    // origen.val(destinoVal).trigger('change.select2');  //codigo original
+    // destino.val(origenVal).trigger('change.select2');  //codigo original
 
-    // Actualizar visualmente Select2
-    origen.select2('destroy').select2();
-    destino.select2('destroy').select2();
+
+    //codigo agregado
+
+    // Eliminar las opciones originales
+    origen.find('option[value="' + origenVal + '"]').remove();
+    destino.find('option[value="' + destinoVal + '"]').remove();
+
+    // Crear nuevas opciones con los valores y textos intercambiados
+    var newOrigen = new Option(destinoText, destinoVal, true, true);
+    var newDestino = new Option(origenText, origenVal, true, true);
+    origen.append(newOrigen).trigger('change');
+    destino.append(newDestino).trigger('change');
+
+    // fin codigo agregado
+
+
+    // // Actualizar visualmente Select2   //codigo original
+    // origen.select2('destroy').select2();
+    // destino.select2('destroy').select2();
 
     // Registrar valores después del intercambio
     console.log('Valor intercambiado de origen:', origen.val());
@@ -217,8 +237,22 @@ function handleSubmit(event) {
     estrellasHotel: document.querySelector('input[name="estrellasHotel"]:checked').value,
   };
   console.log(formData);
+  modalForm.style.display = "block";
+  setTimeout(function () {
+    document.getElementById("vueloHotel").submit();
+  }, 2000);
   vaciarCampos();
 };
+
+cerrar.onclick = function () {
+  modalForm.style.display = "none";
+}
+
+window.onclick = function (event) {
+  if (event.target == modalForm) {
+    modalForm.style.display = "none";
+  }
+}
 
 function vaciarCampos() {
   document.getElementById('nombre').value = '';
@@ -309,7 +343,6 @@ $('#origen').select2(
       cache: true
     }
   });
-
 $('#destino').select2(
   {
     language: {
@@ -351,7 +384,6 @@ $('#destino').select2(
       cache: true
     }
   });
-
 $(function () {
   $('input[name="fechaVuelta"]').daterangepicker({
     autoUpdateInput: false,
@@ -370,7 +402,6 @@ $(function () {
     $(this).val('');
   });
 });
-
 $(function () {
   $('input[name="fechaSalida"]').daterangepicker({
     autoUpdateInput: false,

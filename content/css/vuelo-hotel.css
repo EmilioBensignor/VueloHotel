@@ -1,3 +1,24 @@
+body {
+    --icon-nombre: url("/content/img/formVueloHotel/icon-nombre.svg");
+    --icon-pais: url("/content/img/formVueloHotel/icon-pais.svg");
+    --icon-wpp: url("/content/img/formVueloHotel/icon-whatsapp.svg");
+    --icon-mail: url("/content/img/formVueloHotel/icon-mail.svg");
+    --icon-fecha: url("/content/img/formVueloHotel/icon-calendario.svg");
+    --icon-origen: url("/content/img/formVueloHotel/icon-origen.svg");
+    --icon-destino: url("/content/img/formVueloHotel/icon-destino.svg");
+}
+
+
+body[data-entorno="tourexperto.com"] {
+    --icon-nombre: url(//imagenes.tourexperto.com/content/img/formVueloHotel/icon-nombre.svg);
+    --icon-pais: url(//imagenes.tourexperto.com/content/img/formVueloHotel/icon-pais.svg);
+    --icon-wpp: url(//imagenes.tourexperto.com/content/img/formVueloHotel/icon-whatsapp.svg);
+    --icon-mail: url(//imagenes.tourexperto.com/content/img/formVueloHotel/icon-mail.svg);
+    --icon-fecha: url(//imagenes.tourexperto.com/content/img/formVueloHotel/icon-calendario.svg);
+    --icon-origen: url(//imagenes.tourexperto.com/content/img/formVueloHotel/icon-origen.svg);
+    --icon-destino: url(//imagenes.tourexperto.com/content/img/formVueloHotel/icon-destino.svg);
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -94,7 +115,7 @@ label,
     cursor: pointer;
 }
 
-input{
+input {
     height: 50px;
 }
 
@@ -105,7 +126,7 @@ input{
     border: 2px solid #d3245c !important;
 }
 
-.select2-container--default .select2-selection--single{
+.select2-container--default .select2-selection--single {
     height: 30px;
 }
 
@@ -133,7 +154,7 @@ input{
     font-weight: 600;
 }
 
-::placeholder{
+::placeholder {
     color: #636363;
     font-family: "Raleway", sans-serif;
     font-size: 0.8rem;
@@ -142,6 +163,10 @@ input{
 
 select {
     color: #636363;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__arrow {
+    top: 7px;
 }
 
 .contenedorSelectPaisResidencia .select2-container--default .select2-selection--single .select2-selection__arrow b {
@@ -159,7 +184,7 @@ select {
 }
 
 .contenedorInputDestino .select2-container--open:last-child,
-.contenedorInputOrigen .select2-container--open:last-child{
+.contenedorInputOrigen .select2-container--open:last-child {
     border: none !important;
 }
 
@@ -209,31 +234,31 @@ select {
 }
 
 .inputNombre {
-    background-image: url("/content/img/formVueloHotel/icon-nombre.svg");
+    background-image: var(--icon-nombre)
 }
 
 .contenedorSelectPaisResidencia .select2-container {
-    background-image: url("/content/img/formVueloHotel/icon-pais.svg");
+    background-image: var(--icon-pais)
 }
 
 .inputArea {
-    background-image: url("/content/img/formVueloHotel/icon-whatsapp.svg");
+    background-image: var(--icon-wpp)
 }
 
 .inputMail {
-    background-image: url("/content/img/formVueloHotel/icon-mail.svg");
+    background-image: var(--icon-mail)
 }
 
 .inputFecha {
-    background-image: url("/content/img/formVueloHotel/icon-calendario.svg");
+    background-image: var(--icon-fecha)
 }
 
 .contenedorInputOrigen .select2-container {
-    background-image: url("/content/img/formVueloHotel/icon-origen.svg");
+    background-image: var(--icon-origen)
 }
 
 .contenedorInputDestino .select2-container {
-    background-image: url("/content/img/formVueloHotel/icon-destino.svg");
+    background-image: var(--icon-destino)
 }
 
 .select2-dropdown {
@@ -281,6 +306,10 @@ select {
 .contenedorInputDestino .select2-container {
     border-top: none !important;
     border-radius: 0 0 6px 6px !important;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__rendered {
+    color: black;
 }
 
 .daterangepicker td.active,
@@ -373,6 +402,43 @@ select {
     height: 15px;
 }
 
+/* Estilos para el modal */
+.modalForm {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.contenidoModal {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+}
+
+.cerrar {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.cerrar:hover,
+.cerrar:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
 @media only screen and (min-width: 350px) {
     .opcionEstrellas {
         width: 5.5rem;
@@ -453,7 +519,7 @@ select {
     .contenedorSelectPaisResidencia .select2-container--default .select2-selection--single .select2-selection__arrow,
     .contenedorInputOrigen .select2-container--default .select2-selection--single .select2-selection__arrow,
     .contenedorInputDestino .select2-container--default .select2-selection--single .select2-selection__arrow {
-        top: 5px;
+        top: 10px;
         right: 5px;
     }
 }
@@ -814,6 +880,7 @@ select {
     .contenedorInputOrigen .select2-container,
     .contenedorInputDestino .select2-container {
         padding: 4% 14% !important;
+        height: 50px;
     }
 
     .areaNumeroWhatsapp {
@@ -1017,6 +1084,7 @@ select {
     .contenedorInputOrigen .select2-container .selection .select2-selection .select2-selection__rendered,
     .contenedorInputDestino .select2-container .selection .select2-selection .select2-selection__rendered {
         font-size: 1.05rem;
+        padding-top: 0;
     }
 
     .inputNombre,
@@ -1080,6 +1148,11 @@ select {
     .inputMail,
     .inputFecha {
         padding: 5.5% 0 5.5% 11.5% !important;
+        height: 50px;
+    }
+
+    .inputFecha {
+        height: 45px;
     }
 
     .contenedorSelectPaisResidencia .select2-container,
@@ -1124,9 +1197,13 @@ select {
 
     .inputNombre,
     .inputArea,
-    .inputMail,
-    .inputFecha {
+    .inputMail {
         padding: 5% 0 5% 10.5% !important;
+    }
+
+    .contenedorInputsFechas .inputFecha {
+        height: 45px;
+        padding: 6.4% 0 6.4% 12% !important;
     }
 
     .contenedorSelectPaisResidencia .select2-container,
