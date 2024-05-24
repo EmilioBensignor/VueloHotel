@@ -209,6 +209,14 @@ select {
     padding-left: 22px !important;
 }
 
+.select2-container--default .select2-search--dropdown .select2-search__field {
+    border: 1px solid #D3245C !important;
+}
+
+.contenedorPaisResidencia .select2-container--default .select2-selection--single:focus, .contenedorInputOrigen .select2-container--default .select2-selection--single:focus, .contenedorInputDestino .select2-container--default .select2-selection--single:focus {
+    outline: none !important;
+}
+
 .inputNombre,
 .inputArea,
 .inputMail,
@@ -323,15 +331,6 @@ select {
     padding: 3.5% 10% !important;
     color: white;
 }
-
-.cancelBtn {
-    background: #2e0049;
-}
-
-.applyBtn {
-    background: #d3245c;
-}
-
 .contenedorEstrellas {
     display: flex;
     justify-content: center;
@@ -376,7 +375,7 @@ select {
 
 .btnSubmit {
     background: #d3245c;
-    border: none;
+    border: 3px solid #D3245C;
     color: white;
     border-radius: 33px;
     font-size: 1rem;
@@ -385,6 +384,12 @@ select {
     cursor: pointer;
     padding: 4% 10%;
     margin: 0 3%;
+    transition: all 0.4s ease;
+}
+
+.btnSubmit:hover{
+    background: white;
+    color: #d3245c ;
 }
 
 .error {
@@ -483,11 +488,18 @@ select {
 .modalLinks a {
     text-align: center;
     background: #6C58FE;
+    border: 3px solid #6C58FE;
     color: white;
     font-weight: 600;
     border-radius: 33px;
     text-decoration: none;
     padding: 1rem 1.5rem;
+    transition: all 0.4s ease;
+}
+
+.modalLinks a:hover{
+    background: white;
+    color: #6C58FE;
 }
 
 
@@ -794,6 +806,7 @@ select {
 }
 
 @media only screen and (min-width: 900px) {
+
     .inputNombre,
     .inputArea,
     .inputMail,
@@ -807,7 +820,7 @@ select {
         padding: 1.25% 4% !important;
     }
 
-    .contenidoModal{
+    .contenidoModal {
         width: 750px;
     }
 }
