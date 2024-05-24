@@ -142,42 +142,23 @@ function intercambiarOrigenDestino(event) {
   const origen = $('#origen');
   const destino = $('#destino');
 
-  // Valores iniciales
   const origenVal = origen.val();
   const destinoVal = destino.val();
-  const origenText = origen.select2('data')[0].text;  //codigo agregado
-  const destinoText = destino.select2('data')[0].text;   //codigo agregado
+  const origenText = origen.select2('data')[0].text;
+  const destinoText = destino.select2('data')[0].text;
 
-  // Agregar registros de depuración
   console.log('Valor inicial de origen:', origenVal);
   console.log('Valor inicial de destino:', destinoVal);
 
   if (origenVal && destinoVal) {
-    // Intercambiar los valores 
-    // origen.val(destinoVal).trigger('change.select2');  //codigo original
-    // destino.val(origenVal).trigger('change.select2');  //codigo original
-
-
-    //codigo agregado
-
-    // Eliminar las opciones originales
     origen.find('option[value="' + origenVal + '"]').remove();
     destino.find('option[value="' + destinoVal + '"]').remove();
 
-    // Crear nuevas opciones con los valores y textos intercambiados
     var newOrigen = new Option(destinoText, destinoVal, true, true);
     var newDestino = new Option(origenText, origenVal, true, true);
     origen.append(newOrigen).trigger('change');
     destino.append(newDestino).trigger('change');
 
-    // fin codigo agregado
-
-
-    // // Actualizar visualmente Select2   //codigo original
-    // origen.select2('destroy').select2();
-    // destino.select2('destroy').select2();
-
-    // Registrar valores después del intercambio
     console.log('Valor intercambiado de origen:', origen.val());
     console.log('Valor intercambiado de destino:', destino.val());
   } else {
@@ -223,7 +204,6 @@ document.getElementById('vueloHotel').addEventListener('submit', function (event
 
 function handleSubmit(event) {
   event.preventDefault();
-
   const formData = {
     nombre: document.getElementById('nombre').value,
     paisResidencia: document.getElementById('paisResidencia').value,
@@ -237,10 +217,7 @@ function handleSubmit(event) {
     estrellasHotel: document.querySelector('input[name="estrellasHotel"]:checked').value,
   };
   console.log(formData);
-  modalForm.style.display = "block";
-  setTimeout(function () {
-    document.getElementById("vueloHotel").submit();
-  }, 2000);
+  modalForm.style.display = "flex";
   vaciarCampos();
 };
 
