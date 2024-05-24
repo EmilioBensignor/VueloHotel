@@ -44,8 +44,8 @@ function validarNombre(nombre, errorNombre) {
   if (nombre.trim() === '') {
     mostrarError(errorNombre, 'El nombre es requerido');
     return false;
-  } else if (nombre.trim().length >= 20) {
-    mostrarError(errorNombre, 'El nombre debe tener menos de 20 caracteres');
+  } else if (nombre.trim().length >= 40) {
+    mostrarError(errorNombre, 'El nombre debe tener menos de 40 caracteres');
     return false;
   } else if (nombre.trim().length < 2) {
     mostrarError(errorNombre, 'El nombre de tener al menos 2 caracteres');
@@ -96,13 +96,18 @@ function validarFechas(fechaSalida, fechaVuelta, errorFechas) {
     mostrarError(errorFechas, 'Las fechas son requeridas');
     return false;
   } else {
-    var salida = new Date(fechaSalida);
-    var vuelta = new Date(fechaVuelta);
+    let salida = moment(fechaSalida, 'DD/MM/YYYY');
+    let vuelta = moment(fechaVuelta, 'DD/MM/YYYY');
 
-    if (salida >= vuelta) {
+    if (!salida.isValid() || !vuelta.isValid()) {
+      mostrarError(errorFechas, 'Formato de fecha inválido');
+      return false;
+    }
+
+    if (vuelta.isBefore(salida)) {
       mostrarError(errorFechas, 'La fecha de vuelta debe ser posterior a la fecha de salida');
       return false;
-    } else if (salida.getTime() === vuelta.getTime()) {
+    } else if (vuelta.isSame(salida)) {
       mostrarError(errorFechas, 'Las fechas de salida y vuelta no pueden ser iguales');
       return false;
     } else {
@@ -204,7 +209,8 @@ document.getElementById('vueloHotel').addEventListener('submit', function (event
 
 function handleSubmit(event) {
   event.preventDefault();
-  const formData = {
+  formData = new FormData(vueloHotel);
+  /* const formData = {
     nombre: document.getElementById('nombre').value,
     paisResidencia: document.getElementById('paisResidencia').value,
     area: document.getElementById('area').value,
@@ -217,8 +223,33 @@ function handleSubmit(event) {
     estrellasHotel: document.querySelector('input[name="estrellasHotel"]:checked').value,
   };
   console.log(formData);
-  modalForm.style.display = "flex";
-  vaciarCampos();
+ */
+  $.ajax(
+    {
+      type: "POST",
+      url: "/cgi-bin/tevue2zoh.pl",
+      data: formData,
+      processData: false,
+      contentType: false,
+      xhrFields: { withCredentials: true },
+      beforeSend: function (jqXHR, settings) {
+        myXHR = settings.xhr();
+      },
+      error: function (jqXHR, textStatus, errorMessage) {
+        console.log(errorMessage);
+      },
+      success: function (data) {
+        if (data != "OK") {
+          window.alert(data);
+        } else {
+          cerrar.click();
+          modalForm.style.display = "flex";
+          vaciarCampos();
+        }
+      }
+    }
+  );
+
 };
 
 cerrar.onclick = function () {
@@ -296,6 +327,9 @@ $('#origen').select2(
       },
       searching: function () {
         return "Buscando...";
+      },
+      maximumSelected: function (args) {
+        return "Solo puedes seleccionar una opción"
       }
     },
     minimumResultsForSearch: Infinity,
@@ -303,6 +337,8 @@ $('#origen').select2(
     dropdownCssClass: "search",
     minimumInputLength: 3,
     dropdownParent: $('#origen').parent(),
+    allowClear: true,
+    placeholder: "País o ciudad de origen",
     ajax: {
       url: '/cgi-bin/tedestinos.pl',
       dataType: 'json',
@@ -337,6 +373,9 @@ $('#destino').select2(
       },
       searching: function () {
         return "Buscando...";
+      },
+      maximumSelected: function (args) {
+        return "Solo puedes seleccionar una opción"
       }
     },
     minimumResultsForSearch: Infinity,
@@ -344,6 +383,8 @@ $('#destino').select2(
     dropdownCssClass: "search",
     minimumInputLength: 3,
     dropdownParent: $('#destino').parent(),
+    allowClear: true,
+    placeholder: "País o ciudad de destino",
     ajax: {
       url: '/cgi-bin/tedestinos.pl',
       dataType: 'json',

@@ -213,7 +213,9 @@ select {
     border: 1px solid #D3245C !important;
 }
 
-.contenedorPaisResidencia .select2-container--default .select2-selection--single:focus, .contenedorInputOrigen .select2-container--default .select2-selection--single:focus, .contenedorInputDestino .select2-container--default .select2-selection--single:focus {
+.contenedorPaisResidencia .select2-container--default .select2-selection--single:focus,
+.contenedorInputOrigen .select2-container--default .select2-selection--single:focus,
+.contenedorInputDestino .select2-container--default .select2-selection--single:focus {
     outline: none !important;
 }
 
@@ -239,6 +241,20 @@ select {
     background-size: 12px 12px;
     background-position: 10px center;
     background-repeat: no-repeat;
+}
+
+.contenedorPaisResidencia .select2-container--default .select2-selection--single .select2-selection__rendered, .contenedorInputOrigen .select2-container--default .select2-selection--single .select2-selection__rendered, .contenedorInputDestino .select2-container--default .select2-selection--single .select2-selection__rendered {
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: row-reverse;
+    gap: 0.5rem;
+    color: black;
+}
+
+.contenedorPaisResidencia .select2-container--default .select2-selection--single .select2-selection__clear, .contenedorInputOrigen .select2-container--default .select2-selection--single .select2-selection__clear, .contenedorInputDestino .select2-container--default .select2-selection--single .select2-selection__clear{
+    height: auto;
+    font-size: 1.2rem;
+    color: #D3245C;
 }
 
 .inputNombre {
@@ -299,6 +315,18 @@ select {
     width: 70% !important;
 }
 
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Para Firefox */
+input[type=number] {
+    -moz-appearance: textfield;
+    appearance: textfield;
+}
+
 .contenedorInputsFechas,
 .contenedorInputsRutas {
     gap: 0 !important;
@@ -316,10 +344,6 @@ select {
     border-radius: 0 0 6px 6px !important;
 }
 
-.select2-container--default .select2-selection--single .select2-selection__rendered {
-    color: black;
-}
-
 .daterangepicker td.active,
 .daterangepicker td.active:hover {
     background: #2e0049 !important;
@@ -331,6 +355,7 @@ select {
     padding: 3.5% 10% !important;
     color: white;
 }
+
 .contenedorEstrellas {
     display: flex;
     justify-content: center;
@@ -387,9 +412,9 @@ select {
     transition: all 0.4s ease;
 }
 
-.btnSubmit:hover{
+.btnSubmit:hover {
     background: white;
-    color: #d3245c ;
+    color: #d3245c;
 }
 
 .error {
@@ -497,7 +522,7 @@ select {
     transition: all 0.4s ease;
 }
 
-.modalLinks a:hover{
+.modalLinks a:hover {
     background: white;
     color: #6C58FE;
 }
