@@ -89,7 +89,7 @@ form div {
 }
 
 label,
-.pCategoriaHotel {
+.pLabel {
     font-size: 0.8rem;
     font-weight: 800;
     color: #2e0049;
@@ -243,7 +243,9 @@ select {
     background-repeat: no-repeat;
 }
 
-.contenedorPaisResidencia .select2-container--default .select2-selection--single .select2-selection__rendered, .contenedorInputOrigen .select2-container--default .select2-selection--single .select2-selection__rendered, .contenedorInputDestino .select2-container--default .select2-selection--single .select2-selection__rendered {
+.contenedorPaisResidencia .select2-container--default .select2-selection--single .select2-selection__rendered,
+.contenedorInputOrigen .select2-container--default .select2-selection--single .select2-selection__rendered,
+.contenedorInputDestino .select2-container--default .select2-selection--single .select2-selection__rendered {
     display: flex;
     justify-content: flex-end;
     flex-direction: row-reverse;
@@ -251,7 +253,9 @@ select {
     color: black;
 }
 
-.contenedorPaisResidencia .select2-container--default .select2-selection--single .select2-selection__clear, .contenedorInputOrigen .select2-container--default .select2-selection--single .select2-selection__clear, .contenedorInputDestino .select2-container--default .select2-selection--single .select2-selection__clear{
+.contenedorPaisResidencia .select2-container--default .select2-selection--single .select2-selection__clear,
+.contenedorInputOrigen .select2-container--default .select2-selection--single .select2-selection__clear,
+.contenedorInputDestino .select2-container--default .select2-selection--single .select2-selection__clear {
     height: auto;
     font-size: 1.2rem;
     color: #D3245C;
@@ -396,6 +400,18 @@ input[type=number] {
     height: auto;
     display: block;
     margin-bottom: 5px;
+}
+
+.observaciones textarea {
+    resize: none;
+    border-radius: 9px;
+    border: 1px solid #D3245C;
+    outline: none;
+    padding: 1rem;
+}
+
+.observaciones textarea:focus {
+    border: 2px solid #D3245C;
 }
 
 .btnSubmit {
@@ -552,7 +568,7 @@ input[type=number] {
     }
 
     label,
-    .pCategoriaHotel {
+    .pLabel {
         font-size: 0.9rem;
     }
 
@@ -641,7 +657,7 @@ input[type=number] {
     }
 
     label,
-    .pCategoriaHotel {
+    .pLabel {
         font-size: 1.15rem;
     }
 
@@ -748,7 +764,7 @@ input[type=number] {
     }
 
     label,
-    .pCategoriaHotel {
+    .pLabel {
         font-size: 1.2rem;
     }
 
@@ -935,7 +951,7 @@ input[type=number] {
     }
 
     label,
-    .pCategoriaHotel {
+    .pLabel {
         font-size: 1rem;
     }
 
@@ -1057,7 +1073,7 @@ input[type=number] {
     }
 
     label,
-    .pCategoriaHotel {
+    .pLabel {
         font-size: 1.05rem;
     }
 
@@ -1123,7 +1139,7 @@ input[type=number] {
     }
 
     label,
-    .pCategoriaHotel {
+    .pLabel {
         font-size: 1.1rem;
     }
 
@@ -1180,7 +1196,7 @@ input[type=number] {
     }
 
     label,
-    .pCategoriaHotel {
+    .pLabel {
         font-size: 1.2rem;
     }
 
@@ -1237,7 +1253,7 @@ input[type=number] {
     }
 
     label,
-    .pCategoriaHotel {
+    .pLabel {
         font-size: 1.3rem;
     }
 
@@ -1289,7 +1305,7 @@ input[type=number] {
     }
 
     label,
-    .pCategoriaHotel {
+    .pLabel {
         font-size: 1.35rem;
     }
 
