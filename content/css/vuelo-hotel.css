@@ -414,6 +414,10 @@ input[type=number] {
     border: 2px solid #D3245C;
 }
 
+.observaciones textarea::placeholder{
+    color: #aaa;
+}
+
 .btnSubmit {
     background: #d3245c;
     border: 3px solid #D3245C;
